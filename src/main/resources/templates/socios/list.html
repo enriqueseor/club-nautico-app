@@ -61,11 +61,11 @@
 							<td th:text="${socio.patron} ? 'Sí' : 'No'">Patrón</td>
 							<td>
 								<a th:href="@{/socios/show/{id}(id=${socio.id})}"
-									class="btn btn-primary btn-sm">Mostrar</button>
-									<a th:href="@{/socios/edit/{id}(id=${socio.id})}"
-										class="btn btn-warning btn-sm">Editar</button>
-										<a th:href="@{/socios/delete/{id}(id=${socio.id})}"
-											class="btn btn-danger btn-sm">Borrar</a>
+									class="btn btn-primary btn-sm">Mostrar</a>
+								<a th:href="@{/socios/edit/{id}(id=${socio.id})}"
+								   class="btn btn-warning btn-sm">Editar</a>
+								<a th:href="@{/socios/delete/{id}(id=${socio.id})}"
+								   class="btn btn-danger btn-sm">Borrar</a>
 							</td>
 						</tr>
 						<tr th:if="${socios.size()} == 0">
@@ -83,6 +83,7 @@
 			
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
+	</div>
 </body>
 
 </html>

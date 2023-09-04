@@ -65,11 +65,11 @@
 							<td th:text="${barco.socio.nombre}"></td>
 							<td>
 								<a th:href="@{/barcos/show/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
-									class="btn btn-primary btn-sm">Mostrar</button>
-									<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
-										class="btn btn-warning btn-sm">Editar</button>
-										<a th:href="@{/barcos/delete/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
-											class="btn btn-danger btn-sm">Borrar</a>
+									class="btn btn-primary btn-sm">Mostrar</a>
+								<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
+								   class="btn btn-warning btn-sm">Editar</a>
+								<a th:href="@{/barcos/delete/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
+								   class="btn btn-danger btn-sm">Borrar</a>
 							</td>
 						</tr>
 						<tr th:if="${barcos.size()} == 0">
@@ -87,6 +87,7 @@
 			
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
+	</div>
 </body>
 
 </html>
