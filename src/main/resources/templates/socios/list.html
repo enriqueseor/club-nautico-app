@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Socios</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+	<link href="/css/club-nautico.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+	<div class="container my-5">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Salidas</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Administración
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="/users/listPersonas"
+										th:href="@{/personas/listPersonas}">Personas</a></li>
+								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Socios</a></li>
+								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/barcos/listBarco}">Barcos</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="card">
+			<div class="card-header">
+				<h1>Socios</h1>
+			</div>
+			<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Dni</th>
+							<th>Nombre</th>
+							<th>Es patrón</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="socio : ${socios}" th:if="${socios.size()} > 0">
+							<td th:text="${socio.dni}"></td>
+							<td th:text="${socio.nombre}"></td>
+							<td th:text="${socio.patron} ? 'Sí' : 'No'">Patrón</td>
+							<td>
+								<a th:href="@{/socios/show/{id}(id=${socio.id})}"
+									class="btn btn-primary btn-sm">Mostrar</button>
+									<a th:href="@{/socios/edit/{id}(id=${socio.id})}"
+										class="btn btn-warning btn-sm">Editar</button>
+										<a th:href="@{/socios/delete/{id}(id=${socio.id})}"
+											class="btn btn-danger btn-sm">Borrar</a>
+							</td>
+						</tr>
+						<tr th:if="${socios.size()} == 0">
+							<td colspan="3" class="text-center">No se han encontrado registros</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+		<div class="d-flex justify-content-between">
+			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
+			<a href="/socios/create" class="btn btn-primary" th:href="@{/socios/create}">Nuevo socio</a>
+			
+		</div>
+		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
+</body>
+
+</html>
