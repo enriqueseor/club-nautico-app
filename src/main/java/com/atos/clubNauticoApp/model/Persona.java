@@ -12,19 +12,14 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Data
 @Entity
 @Table(name = "PERSONAS")
 @AllArgsConstructor
-@NoArgsConstructor
 public class Persona implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4692544910217024117L;
 
 	@Id
@@ -84,5 +79,4 @@ public class Persona implements Serializable {
 	public Persona() {
 		super();
 	}
-
 }

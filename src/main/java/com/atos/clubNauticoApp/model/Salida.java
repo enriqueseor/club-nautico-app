@@ -14,19 +14,13 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "SALIDAS")
 @AllArgsConstructor
-@NoArgsConstructor
-
 public class Salida implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 5515882341519430199L;
 
 	@Id

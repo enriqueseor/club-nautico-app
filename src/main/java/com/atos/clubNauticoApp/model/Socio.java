@@ -15,19 +15,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "SOCIOS")
 @AllArgsConstructor
-@NoArgsConstructor
-
 public class Socio implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6612176685983969125L;
 
 	@Id
@@ -109,5 +103,4 @@ public class Socio implements Serializable{
 	public void setBarco(List<Barco> barco) {
 		this.barco = barco;
 	}
-	
 }

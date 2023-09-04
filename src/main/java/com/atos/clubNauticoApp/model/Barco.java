@@ -15,9 +15,6 @@ import jakarta.persistence.Table;
 @Table(name="Barcos")
 public class Barco implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2229450999885454481L;
 
 	@Id
@@ -33,12 +30,6 @@ public class Barco implements Serializable{
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_socio")
 	private Socio socio;
-	
-	/*
-	@OneToMany(mappedBy="barco", fetch = FetchType.LAZY)
-	@Column(name="salidas")
-	private List<Salida> salida;
-	*/
 	
 	public Barco(String nombre, int numeroAmarre, double cuota, Socio socio) {
 		this.nombre = nombre;
@@ -97,16 +88,6 @@ public class Barco implements Serializable{
 	public void setSocio(Socio socio) {
 		this.socio = socio;
 	}
-
-	/*
-	public List<Salida> getSalida() {
-		return salida;
-	}
-
-	public void setSalida(List<Salida> salida) {
-		this.salida = salida;
-	}
-	*/
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
