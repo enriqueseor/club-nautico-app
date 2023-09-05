@@ -17,27 +17,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "TRIP")
+@Table(name = "TRIPS")
 @AllArgsConstructor
 public class Trip implements Serializable{
 
 	private static final long serialVersionUID = 5515882341519430199L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_trip")
 	private Long id;
-	
 	private Date date;
-	
 	private String time;
-	
 	private String destination;
-	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_member")
 	private Member member;
-	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_boat")
 	private Boat boat;

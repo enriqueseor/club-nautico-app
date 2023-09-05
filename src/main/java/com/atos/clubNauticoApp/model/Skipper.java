@@ -18,7 +18,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "SKIPPER")
+@Table(name = "SKIPPERS")
 @AllArgsConstructor
 public class Skipper implements Serializable{
 
@@ -38,26 +38,26 @@ public class Skipper implements Serializable{
 	private String name;
 	
 	@Column(name="PATRON")
-	private Boolean patron;
+	private Boolean skipper;
 	
 	@OneToMany(mappedBy="skipper", fetch = FetchType.LAZY)
 	@Column(name="Boat")
 	private List<Boat> boat;
 
 	
-	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean patron, List<Boat> boat) {
+	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean skipper, List<Boat> boat) {
 		super();
 		this.dni = dni;
 		this.name = name;
-		this.patron = patron;
+		this.skipper = skipper;
 		this.boat = boat;
 	}
 
-	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean patron) {
+	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean skipper) {
 		super();
 		this.dni = dni;
 		this.name = name;
-		this.patron = patron;
+		this.skipper = skipper;
 	}
 
 	public Skipper() {
@@ -88,12 +88,12 @@ public class Skipper implements Serializable{
 		this.name = name;
 	}
 
-	public Boolean getPatron() {
-		return patron;
+	public Boolean getSkipper() {
+		return skipper;
 	}
 
-	public void setPatron(Boolean patron) {
-		this.patron = patron;
+	public void setSkipper(Boolean skipper) {
+		this.skipper = skipper;
 	}
 
 	public List<Boat> getBoat() {

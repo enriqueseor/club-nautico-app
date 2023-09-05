@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/skipper")
+@RequestMapping("/skippers")
 public class SkipperController {
 
 	@Autowired
@@ -27,47 +27,47 @@ public class SkipperController {
 	@GetMapping("/create")
 	public String skipperCreateForm(Model model) {
 		model.addAttribute("skipper", new Skipper());
-		return "skipper/create";
+		return "skippers/create";
 		
 	}
 	
 	@GetMapping("/edit")
 	public String skipperEditForm(@ModelAttribute Skipper skipper, Model model) {
 		model.addAttribute("skipper", skipper);
-		return "skipper/edit";
+		return "skippers/edit";
 		
 	}
 	
 	@PostMapping
 	public String createSkipper(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "skipper/create";
+			return "skippers/create";
 		}
 		model.addAttribute("skipper", skipperService.createSkipper(skipper));
-		return "skipper/show";
+		return "skippers/show";
 		
 	}
 	
 	@PutMapping
 	public String editSkipper(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "skipper/edit";
+			return "skippers/edit";
 		}
-		model.addAttribute("socio", skipperService.createSkipper(skipper));
-		return "socios/show";
+		model.addAttribute("skipper", skipperService.createSkipper(skipper));
+		return "skippers/show";
 	}
 	
 	@GetMapping("/skipperList")
 	public String skipperList(Model model) {
 	    model.addAttribute("skipper", skipperService.getAllSkippers());
-	    return "skipper/list";
+	    return "skippers/list";
 	}
 
 	@GetMapping("/delete/{id}")
 	public String deleteSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id).orElse(null);
 	    skipperService.deleteSkipper(skipper);
-	    return "redirect:/skipper/skipperList";
+	    return "redirect:/skippers/skipperList";
 	}
 	
 	@GetMapping("/show/{id}")
@@ -75,13 +75,13 @@ public class SkipperController {
 	    Skipper skipper = skipperService.findById(id)
 	      .orElse(null);
 	    model.addAttribute("skipper", skipper);
-	    return "skipper/show";
+	    return "skippers/show";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id).orElse(null);
 	    model.addAttribute("skipper", skipper);
-		return "skipper/edit";
+		return "skippers/edit";
 	}
 }

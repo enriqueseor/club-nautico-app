@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/members")
 public class MemberController {
 
 	@Autowired
@@ -27,38 +27,38 @@ public class MemberController {
 	@GetMapping("/create")
 	public String memberCreateForm(Model model) {
 		model.addAttribute("member", new Member());
-		return "member/create";
+		return "members/create";
 		
 	}
 	
 	@GetMapping("/edit")
 	public String memberEditForm(@ModelAttribute Member member, Model model) {
 		model.addAttribute("member", member);
-		return "member/edit";
+		return "members/edit";
 	}
 	
 	@PostMapping
 	public String createMember(@ModelAttribute @Valid Member member, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "member/create";
+			return "members/create";
 		}
 		model.addAttribute("member", memberService.createMember(member));
-		return "member/show";
+		return "members/show";
 	}
 	
 	@PutMapping
 	public String editMember(@ModelAttribute @Valid Member member, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "member/edit";
+			return "members/edit";
 		}
 		model.addAttribute("member", memberService.createMember(member));
-		return "member/show";
+		return "members/show";
 	}
 	
 	@GetMapping("/memberList")
 	public String memberList(Model model) {
 	    model.addAttribute("member", memberService.getAllMembers());
-	    return "member/list";
+	    return "members/list";
 	}
 	
 	
@@ -66,7 +66,7 @@ public class MemberController {
 	public String deleteMemeber(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
 	    memberService.deleteMember(member);
-	    return "redirect:/member/memberList";
+	    return "redirect:/members/memberList";
 	}
 	
 	@GetMapping("/show/{id}")
@@ -74,13 +74,13 @@ public class MemberController {
 	    Member member = memberService.findById(id)
 	      .orElse(null);
 	    model.addAttribute("member", member);
-	    return "member/show";
+	    return "members/show";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editMember(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
 	    model.addAttribute("member", member);
-		return "member/edit";
+		return "members/edit";
 	}
 }

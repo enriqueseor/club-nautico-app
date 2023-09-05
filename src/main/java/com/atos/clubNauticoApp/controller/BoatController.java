@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/boat")
+@RequestMapping("/boats")
 public class BoatController {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class BoatController {
 		model.addAttribute("boat", new Boat());
 		List<Skipper> skippersList = skipperService.findAllByOrderByName();
 		model.addAttribute("memberList", skippersList);
-		return "boat/create";
+		return "boats/create";
 		
 	}
 	
@@ -60,24 +60,23 @@ public class BoatController {
 	@PutMapping
 	public String editBoat(@ModelAttribute @Valid Boat boat, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "boat/edit";
+			return "boats/edit";
 		}
 		model.addAttribute("boat", boatService.createBoat(boat));
-		return "boat/show";
+		return "boats/show";
 	}
 	
 	@GetMapping("/boatList")
 	public String boatList(Model model) {
 	    model.addAttribute("boat", boatService.getAllBoats());
-	    return "boat/list";
+	    return "boats/list";
 	}
-	
-	
+
 	@GetMapping("/delete/{numeroMatricula}")
 	public String deleteBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
 	    boatService.deleteBoat(boat);
-	    return "redirect:/boat/boatList";
+	    return "redirect:/boats/boatList";
 	}
 	
 	@GetMapping("/show/{numeroMatricula}")
@@ -85,14 +84,14 @@ public class BoatController {
 	    Boat boat = boatService.findById(numeroMatricula)
 	      .orElse(null);
 	    model.addAttribute("boat", boat);
-	    return "boat/show";
+	    return "boats/show";
 	}
 	
 	@GetMapping("/edit/{numeroMatricula}")
 	public String editBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
 	    model.addAttribute("boat", boat);
-		return "boat/edit";
+		return "boats/edit";
 	}
 }
 

@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/trip")
+@RequestMapping("/trips")
 public class TripController {
 
 	@Autowired
@@ -27,40 +27,40 @@ public class TripController {
 	@GetMapping("/create")
 	public String tripCreateForm(Model model) {
 		model.addAttribute("trip", new Trip());
-		return "trip/create";
+		return "trips/create";
 		
 	}
 	
 	@GetMapping("/edit")
 	public String tripEditForm(@ModelAttribute Trip trip, Model model) {
 		model.addAttribute("trip", trip);
-		return "trip/edit";
+		return "trips/edit";
 		
 	}
 	
 	@PostMapping
 	public String createTrip(@ModelAttribute @Valid Trip trip, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "trip/create";
+			return "trips/create";
 		}
 		model.addAttribute("trip", tripService.createTrip(trip));
-		return "trip/show";
+		return "trips/show";
 		
 	}
 	
 	@PutMapping
 	public String editTrip(@ModelAttribute @Valid Trip trip, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "trip/edit";
+			return "trips/edit";
 		}
 		model.addAttribute("trip", tripService.createTrip(trip));
-		return "trip/show";
+		return "trips/show";
 	}
 	
 	@GetMapping("/tripList")
 	public String tripList(Model model) {
 	    model.addAttribute("trip", tripService.getAllTrips());
-	    return "trip/list";
+	    return "trips/list";
 	}
 	
 	
@@ -68,7 +68,7 @@ public class TripController {
 	public String deleteTrip(@PathVariable("id") Long id, Model model) {
 		Trip trip = tripService.findById(id).orElse(null);
 	    tripService.deleteTrip(trip);
-	    return "redirect:/trip/tripList";
+	    return "redirect:/trips/tripList";
 	}
 	
 	@GetMapping("/show/{id}")
@@ -76,14 +76,14 @@ public class TripController {
 		Trip trip = tripService.findById(id)
 	      .orElse(null);
 	    model.addAttribute("trip", trip);
-	    return "trip/show";
+	    return "trips/show";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editTrip(@PathVariable("id") Long id, Model model) {
 		Trip trip = tripService.findById(id).orElse(null);
 	    model.addAttribute("trip", trip);
-		return "trip/edit";
+		return "trips/edit";
 	}
 }
 

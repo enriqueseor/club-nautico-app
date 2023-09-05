@@ -12,19 +12,15 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Boat")
+@Table(name="BOAT")
 public class Boat implements Serializable{
 
 	private static final long serialVersionUID = 2229450999885454481L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long boatRegistration;
-	
 	private String name;
-	
 	private int mooringNUmber;
-	
 	private double fee;
 	
 	@OneToOne(fetch = FetchType.LAZY)
@@ -46,8 +42,7 @@ public class Boat implements Serializable{
 		this.fee = fee;
 	}
 
-	public Boat() {
-	}
+	public Boat() {}
 
 	public Long getBoatRegistration() {
 		return boatRegistration;
@@ -65,11 +60,11 @@ public class Boat implements Serializable{
 		this.name = name;
 	}
 
-	public int getMooringNUmber() {
+	public int getMooringNumber() {
 		return mooringNUmber;
 	}
 
-	public void setMooringNUmber(int mooringNUmber) {
+	public void setMooringNumber(int mooringNUmber) {
 		this.mooringNUmber = mooringNUmber;
 	}
 
@@ -81,11 +76,11 @@ public class Boat implements Serializable{
 		this.fee = fee;
 	}
 
-	public Skipper getSocio() {
+	public Skipper getSkipper() {
 		return skipper;
 	}
 
-	public void setSocio(Skipper skipper) {
+	public void setSkipper(Skipper skipper) {
 		this.skipper = skipper;
 	}
 	

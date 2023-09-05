@@ -21,19 +21,15 @@ import lombok.Data;
 public class Member implements Serializable {
 
 	private static final long serialVersionUID = -4692544910217024117L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	@Column(name = "DNI", unique = true)
 	private String dni;
-	
 	@NotBlank
 	@Size(min = 3)
 	@Column(name="NAME")
 	private String name;
-	
 	@Column(name="PATRON")
 	private Boolean patron;
 
@@ -61,11 +57,11 @@ public class Member implements Serializable {
 		this.name = name;
 	}
 
-	public Boolean getPatron() {
+	public Boolean getSkipper() {
 		return patron;
 	}
 
-	public void setPatron(Boolean patron) {
+	public void setSkipper(Boolean patron) {
 		this.patron = patron;
 	}
 
