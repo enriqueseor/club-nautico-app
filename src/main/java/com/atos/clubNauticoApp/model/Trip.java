@@ -19,7 +19,7 @@ import lombok.Data;
 @Entity
 @Table(name = "SALIDAS")
 @AllArgsConstructor
-public class Salida implements Serializable{
+public class Trip implements Serializable{
 
 	private static final long serialVersionUID = 5515882341519430199L;
 
@@ -36,29 +36,29 @@ public class Salida implements Serializable{
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_persona")
-	private Persona persona;
+	private Member member;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_barco")
-	private Barco barco;
+	private Boat boat;
 
-	public Salida(Date fecha, String hora, String destino, Persona persona, Barco barco) {
+	public Trip(Date fecha, String hora, String destino, Member member, Boat boat) {
 		super();
 		this.fecha = fecha;
 		this.hora = hora;
 		this.destino = destino;
-		this.persona = persona;
-		this.barco = barco;
+		this.member = member;
+		this.boat = boat;
 	}
 
-	public Salida(Date fecha, String hora, String destino) {
+	public Trip(Date fecha, String hora, String destino) {
 		super();
 		this.fecha = fecha;
 		this.hora = hora;
 		this.destino = destino;
 	}
 	
-	public Salida() {
+	public Trip() {
 		super();
 	}
 
@@ -94,19 +94,19 @@ public class Salida implements Serializable{
 		this.destino = destino;
 	}
 
-	public Persona getPersona() {
-		return persona;
+	public Member getPersona() {
+		return member;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setPersona(Member member) {
+		this.member = member;
 	}
 
-	public Barco getBarco() {
-		return barco;
+	public Boat getBarco() {
+		return boat;
 	}
 
-	public void setBarco(Barco barco) {
-		this.barco = barco;
+	public void setBarco(Boat boat) {
+		this.boat = boat;
 	}
 }

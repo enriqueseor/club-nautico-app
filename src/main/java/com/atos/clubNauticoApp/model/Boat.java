@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Barcos")
-public class Barco implements Serializable{
+public class Boat implements Serializable{
 
 	private static final long serialVersionUID = 2229450999885454481L;
 
@@ -29,16 +29,16 @@ public class Barco implements Serializable{
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_socio")
-	private Socio socio;
+	private Skipper skipper;
 	
-	public Barco(String nombre, int numeroAmarre, double cuota, Socio socio) {
+	public Boat(String nombre, int numeroAmarre, double cuota, Skipper skipper) {
 		this.nombre = nombre;
 		this.numeroAmarre = numeroAmarre;
 		this.cuota = cuota;
-		this.socio = socio;
+		this.skipper = skipper;
 	}
 
-	public Barco(Long numeroMatricula, String nombre, int numeroAmarre, double cuota) {
+	public Boat(Long numeroMatricula, String nombre, int numeroAmarre, double cuota) {
 		super();
 		this.numeroMatricula = numeroMatricula;
 		this.nombre = nombre;
@@ -46,7 +46,7 @@ public class Barco implements Serializable{
 		this.cuota = cuota;
 	}
 
-	public Barco() {
+	public Boat() {
 	}
 
 	public Long getNumeroMatricula() {
@@ -81,12 +81,12 @@ public class Barco implements Serializable{
 		this.cuota = cuota;
 	}
 
-	public Socio getSocio() {
-		return socio;
+	public Skipper getSocio() {
+		return skipper;
 	}
 
-	public void setSocio(Socio socio) {
-		this.socio = socio;
+	public void setSocio(Skipper skipper) {
+		this.skipper = skipper;
 	}
 	
 	public static long getSerialversionuid() {

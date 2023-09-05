@@ -58,19 +58,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="salida : ${salidas}" th:if="${salidas.size()} > 0">
-							<td th:text="${salida.fecha}"></td>
-							<td th:text="${salida.hora}"></td>
-							<td th:text="${salida.destino}"></td>
-							<td th:text="${salida.socio.nombre}"></td>
-							<td th:text="${salida.persona.nombre}"></td>
-							<td th:text="${salida.barco.nombre}"></td>
+						<tr th:each="trip : ${salidas}" th:if="${salidas.size()} > 0">
+							<td th:text="${trip.fecha}"></td>
+							<td th:text="${trip.hora}"></td>
+							<td th:text="${trip.destino}"></td>
+							<td th:text="${trip.skipper.nombre}"></td>
+							<td th:text="${trip.member.nombre}"></td>
+							<td th:text="${trip.boat.nombre}"></td>
 							<td>
-								<a th:href="@{/salidas/show/{id}(id=${salida.id})}"
+								<a th:href="@{/salidas/show/{id}(id=${trip.id})}"
 									class="btn btn-primary btn-sm">Mostrar</a>
-								<a th:href="@{/salidas/edit/{id}(id=${salida.id})}"
+								<a th:href="@{/salidas/edit/{id}(id=${trip.id})}"
 								   class="btn btn-warning btn-sm">Editar</a>
-								<a th:href="@{/salidas/delete/{id}(id=${salida.id})}"
+								<a th:href="@{/salidas/delete/{id}(id=${trip.id})}"
 								   class="btn btn-danger btn-sm">Borrar</a>
 							</td>
 						</tr>

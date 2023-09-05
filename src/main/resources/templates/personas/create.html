@@ -43,10 +43,10 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Nueva persona</h1>
+				<h1>Nueva member</h1>
 			</div>
 
-			<form action="#" th:action="@{/personas}" th:object="${persona}" th:method="post">
+			<form action="#" th:action="@{/personas}" th:object="${member}" th:method="post">
 				<div class="form-group">
 					<label for="dni">DNI</label>
 					<input type="text" class="form-control" id="dni" name="dni" th:field="*{dni}">

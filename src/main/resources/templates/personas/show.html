@@ -48,18 +48,18 @@
 			</div>
 			<div class="card-body">
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="dni" th:value="${persona.dni}">
+					<input type="text" readonly class="form-control-plaintext" id="dni" th:value="${member.dni}">
 					<label for="dni">DNI</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${persona.nombre}">
+					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${member.nombre}">
 					<label for="dni">Nombre</label>
 				</div>
 
 				<div class="form-floating mb-3">
 					<input type="text" readonly class="form-control-plaintext" id="patron"
-						th:value="${persona.patron} ? 'Sí' : 'No'">
+						th:value="${member.patron} ? 'Sí' : 'No'">
 					<label for="dni">Patron</label>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Volver</a></li>
-			<a th:href="@{/personas/edit/{id}(id=${persona.id})}" class="btn btn-primary">Editar persona</a>
+			<a th:href="@{/personas/edit/{id}(id=${member.id})}" class="btn btn-primary">Editar member</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

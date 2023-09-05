@@ -16,11 +16,7 @@ public final class AdultValidator implements ConstraintValidator<ValidAdult, Dat
 		}else {
 			Calendar cal = Calendar.getInstance();
 			cal.add(Calendar.YEAR, -18);
-			if(birthdate.after(cal.getTime())) {
-				return false;
-			}	
+            return !birthdate.after(cal.getTime());
 		}
-		
-		return true;
-	}
+    }
 }

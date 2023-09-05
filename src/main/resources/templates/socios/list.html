@@ -55,16 +55,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="socio : ${socios}" th:if="${socios.size()} > 0">
-							<td th:text="${socio.dni}"></td>
-							<td th:text="${socio.nombre}"></td>
-							<td th:text="${socio.patron} ? 'Sí' : 'No'">Patrón</td>
+						<tr th:each="skipper : ${socios}" th:if="${socios.size()} > 0">
+							<td th:text="${skipper.dni}"></td>
+							<td th:text="${skipper.nombre}"></td>
+							<td th:text="${skipper.patron} ? 'Sí' : 'No'">Patrón</td>
 							<td>
-								<a th:href="@{/socios/show/{id}(id=${socio.id})}"
+								<a th:href="@{/socios/show/{id}(id=${skipper.id})}"
 									class="btn btn-primary btn-sm">Mostrar</a>
-								<a th:href="@{/socios/edit/{id}(id=${socio.id})}"
+								<a th:href="@{/socios/edit/{id}(id=${skipper.id})}"
 								   class="btn btn-warning btn-sm">Editar</a>
-								<a th:href="@{/socios/delete/{id}(id=${socio.id})}"
+								<a th:href="@{/socios/delete/{id}(id=${skipper.id})}"
 								   class="btn btn-danger btn-sm">Borrar</a>
 							</td>
 						</tr>
@@ -79,7 +79,7 @@
 
 		<div class="d-flex justify-content-between">
 			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
-			<a href="/socios/create" class="btn btn-primary" th:href="@{/socios/create}">Nuevo socio</a>
+			<a href="/socios/create" class="btn btn-primary" th:href="@{/socios/create}">Nuevo skipper</a>
 			
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>

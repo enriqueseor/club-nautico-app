@@ -45,7 +45,7 @@
 			<div class="card-header">
 				<h1>Editar Barco</h1>
 			</div>
-			<form action="#" th:action="@{/barcos}" th:object="${barco}" th:method="put">
+			<form action="#" th:action="@{/barcos}" th:object="${boat}" th:method="put">
 				<input type="hidden" th:field="*{numeroMatricula}" />
 				<div class="form-group">
 					<label for="numeroMatricula">Numero Matricula</label>
@@ -53,7 +53,7 @@
 					<div style="color: red" th:if="${#fields.hasErrors('numeroMatricula')}" th:errors="*{numeroMatricula}"></div>
 				</div>
 				<div class="form-group">
-					<label for="nombre">Nombre del barco</label>
+					<label for="nombre">Nombre del boat</label>
 					<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
 					<div style="color: red" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 				</div>
@@ -68,9 +68,9 @@
 					<div style="color: red" th:if="${#fields.hasErrors('cuota')}" th:errors="*{cuota}"></div>
 				</div>
 				<div class="form-group">
-					<label for="socio">Socio</label>
-					<input type="Socio" class="form-control" id="socio" name="socio" th:field="*{socio}">
-					<div style="color: red" th:if="${#fields.hasErrors('socio')}" th:errors="*{socio}"></div>
+					<label for="skipper">Socio</label>
+					<input type="Socio" class="form-control" id="skipper" name="skipper" th:field="*{skipper}">
+					<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 				</div>
 
 				<div class="d-flex justify-content-between">

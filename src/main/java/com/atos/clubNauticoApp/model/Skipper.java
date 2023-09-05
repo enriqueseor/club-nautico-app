@@ -1,29 +1,32 @@
 package com.atos.clubNauticoApp.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-
 @Data
 @Entity
-@Table(name = "PERSONAS")
+@Table(name = "SOCIOS")
 @AllArgsConstructor
-public class Persona implements Serializable {
+public class Skipper implements Serializable{
 
-	private static final long serialVersionUID = -4692544910217024117L;
+	private static final long serialVersionUID = -6612176685983969125L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_socio", unique = true)
 	private Long id;
 	
 	@Column(name = "DNI", unique = true)
@@ -36,6 +39,30 @@ public class Persona implements Serializable {
 	
 	@Column(name="PATRON")
 	private Boolean patron;
+	
+	@OneToMany(mappedBy="socio", fetch = FetchType.LAZY)
+	@Column(name="Barcos")
+	private List<Boat> boat;
+
+	
+	public Skipper(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron, List<Boat> boat) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.patron = patron;
+		this.boat = boat;
+	}
+
+	public Skipper(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.patron = patron;
+	}
+
+	public Skipper() {
+		super();
+	}
 
 	public Long getId() {
 		return id;
@@ -69,14 +96,11 @@ public class Persona implements Serializable {
 		this.patron = patron;
 	}
 
-	public Persona(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron) {
-		super();
-		this.dni = dni;
-		this.nombre = nombre;
-		this.patron = patron;
+	public List<Boat> getBarco() {
+		return boat;
 	}
 
-	public Persona() {
-		super();
+	public void setBarco(List<Boat> boat) {
+		this.boat = boat;
 	}
 }

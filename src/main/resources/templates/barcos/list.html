@@ -50,25 +50,25 @@
 					<thead>
 						<tr>
 							<th>Numero Matricula</th>
-							<th>Nombre del barco</th>
+							<th>Nombre del boat</th>
 							<th>Numero amarre</th>
 							<th>Cuota</th>
 							<th>Socio</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="barco : ${barcos}" th:if="${barcos.size()} > 0">
-							<td th:text="${barco.numeroMatricula}"></td>
-							<td th:text="${barco.nombre}"></td>
-							<td th:text="${barco.numeroAmarre}"></td>
-							<td th:text="${barco.cuota}"></td>
-							<td th:text="${barco.socio.nombre}"></td>
+						<tr th:each="boat : ${barcos}" th:if="${barcos.size()} > 0">
+							<td th:text="${boat.numeroMatricula}"></td>
+							<td th:text="${boat.nombre}"></td>
+							<td th:text="${boat.numeroAmarre}"></td>
+							<td th:text="${boat.cuota}"></td>
+							<td th:text="${boat.skipper.nombre}"></td>
 							<td>
-								<a th:href="@{/barcos/show/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
+								<a th:href="@{/barcos/show/{numeroMatricula}(numeroMatricula=${boat.numeroMatricula})}"
 									class="btn btn-primary btn-sm">Mostrar</a>
-								<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
+								<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${boat.numeroMatricula})}"
 								   class="btn btn-warning btn-sm">Editar</a>
-								<a th:href="@{/barcos/delete/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}"
+								<a th:href="@{/barcos/delete/{numeroMatricula}(numeroMatricula=${boat.numeroMatricula})}"
 								   class="btn btn-danger btn-sm">Borrar</a>
 							</td>
 						</tr>
@@ -83,7 +83,7 @@
 
 		<div class="d-flex justify-content-between">
 			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
-			<a href="/barcos/create" class="btn btn-primary" th:href="@{/barcos/create}">Nuevo barco</a>
+			<a href="/barcos/create" class="btn btn-primary" th:href="@{/barcos/create}">Nuevo boat</a>
 			
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>

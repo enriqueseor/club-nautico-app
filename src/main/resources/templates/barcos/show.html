@@ -48,27 +48,27 @@
 			</div>
 			<div class="card-body">
 				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="numeroMatricula" th:value="${barco.numeroMatricula}">
+					<input type="number" readonly class="form-control-plaintext" id="numeroMatricula" th:value="${boat.numeroMatricula}">
 					<label for="numeroMatricula">Numero Matricula</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${barco.nombre}">
+					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${boat.nombre}">
 					<label for="numeroMatricula">Nombre</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="numeroAmarre" th:value="${barco.numeroAmarre}">
+					<input type="number" readonly class="form-control-plaintext" id="numeroAmarre" th:value="${boat.numeroAmarre}">
 					<label for="numeroMatricula">Numero Amarre</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="number" step="any" readonly class="form-control-plaintext" id="cuota" th:value="${barco.cuota}">
+					<input type="number" step="any" readonly class="form-control-plaintext" id="cuota" th:value="${boat.cuota}">
 					<label for="numeroMatricula">Cuota</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="Socio" readonly class="form-control-plaintext" id="socio" th:value="${barco.socio.nombre}">
+					<input type="Socio" readonly class="form-control-plaintext" id="skipper" th:value="${boat.skipper.nombre}">
 					<label for="numeroMatricula">Socio</label>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/barcos/listBarco}" class="btn btn-primary">Volver</a></li>
-			<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${barco.numeroMatricula})}" class="btn btn-primary">Editar barco</a>
+			<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${boat.numeroMatricula})}" class="btn btn-primary">Editar boat</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

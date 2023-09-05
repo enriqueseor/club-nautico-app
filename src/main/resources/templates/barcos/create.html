@@ -47,7 +47,7 @@
 				<h1>Nuevo Barco</h1>
 			</div>
 
-			<form action="#" th:action="@{/barcos}" th:object="${barco}" th:method="post">
+			<form action="#" th:action="@{/barcos}" th:object="${boat}" th:method="post">
 				<div class="form-group">
 					<label for="numeroMatricula">Numero Matricula</label>
 					<input type="number" class="form-control" id="numeroMatricula" name="numeroMatricula"
@@ -56,7 +56,7 @@
 						th:errors="*{numeroMatricula}"></div>
 				</div>
 				<div class="form-group">
-					<label for="nombre">Nombre del barco</label>
+					<label for="nombre">Nombre del boat</label>
 					<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
 					<div style="color: red" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 				</div>
@@ -73,19 +73,19 @@
 					<div style="color: red" th:if="${#fields.hasErrors('cuota')}" th:errors="*{cuota}"></div>
 				</div>
 				<div class="form-group">
-					<label for="socio">Socio</label>
-					<select class="form-control" th:field="*{socio}">
+					<label for="skipper">Socio</label>
+					<select class="form-control" th:field="*{skipper}">
 					<option value="">
 							Seleccione un cliente
 						</option>
-					<tr th:each="socio : ${listaSocios}" th:if="${listaSocios.size()} > 0">
-						<option th:value="${socio.id}">
-							<p th:text="${socio.nombre}"></p>
+					<tr th:each="skipper : ${listaSkippers}" th:if="${listaSkippers.size()} > 0">
+						<option th:value="${skipper.id}">
+							<p th:text="${skipper.nombre}"></p>
 						</option>
 					</tr>
 					</select>
 					
-					<div style="color: red" th:if="${#fields.hasErrors('socio')}" th:errors="*{socio}"></div>
+					<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 				</div>
 
 				<div class="d-flex justify-content-between">

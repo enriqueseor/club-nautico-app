@@ -45,7 +45,7 @@
 			<div class="card-header">
 				<h1>Editar Persona</h1>
 			</div>
-			<form action="#" th:action="@{/personas}" th:object="${persona}" th:method="put">
+			<form action="#" th:action="@{/personas}" th:object="${member}" th:method="put">
 				<input type="hidden" th:field="*{id}" />
 				<div class="form-group">
 					<label for="dni">DNI</label>

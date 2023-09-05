@@ -2,6 +2,7 @@ package com.atos.clubNauticoApp.controller;
 
 import java.util.List;
 
+import com.atos.clubNauticoApp.model.Boat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,85 +14,84 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.atos.clubNauticoApp.model.Barco;
-import com.atos.clubNauticoApp.model.Socio;
-import com.atos.clubNauticoApp.service.BarcoService;
-import com.atos.clubNauticoApp.service.SocioService;
+import com.atos.clubNauticoApp.model.Skipper;
+import com.atos.clubNauticoApp.service.BoatService;
+import com.atos.clubNauticoApp.service.SkipperService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/barcos")
-public class BarcoController {
+public class BoatController {
 
 	@Autowired
-	private BarcoService barcoService;
+	private BoatService boatService;
 	
 	@Autowired
-	private SocioService socioService;
+	private SkipperService skipperService;
 	
 	@GetMapping("/create")
 	public String barcoCreateForm(Model model) {
-		model.addAttribute("barco", new Barco());
-		List<Socio> listaSocios = socioService.findAllByOrderByNombre();
-		model.addAttribute("listaSocios", listaSocios);
+		model.addAttribute("barco", new Boat());
+		List<Skipper> listaSkippers = skipperService.findAllByOrderByNombre();
+		model.addAttribute("listaSocios", listaSkippers);
 		return "barcos/create";
 		
 	}
 	
 	@GetMapping("/edit")
-	public String barcoEditForm(@ModelAttribute Barco barco, Model model) {
-		model.addAttribute("barco", barco);
+	public String barcoEditForm(@ModelAttribute Boat boat, Model model) {
+		model.addAttribute("barco", boat);
 		return "barcos/edit";
 		
 	}
 	
 	@PostMapping
-	public String createBarco(@ModelAttribute @Valid Barco barco, BindingResult result, Model model, HttpServletRequest request) {
+	public String createBarco(@ModelAttribute @Valid Boat boat, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
 			return "barcos/create";
 		}
-		model.addAttribute("barco", barcoService.createBarco(barco));
+		model.addAttribute("barco", boatService.createBarco(boat));
 		return "barcos/show";
 		
 	}
 	
 	@PutMapping
-	public String editBarco(@ModelAttribute @Valid Barco barco, BindingResult result, Model model) {
+	public String editBarco(@ModelAttribute @Valid Boat boat, BindingResult result, Model model) {
 		if(result.hasErrors()){
 			return "barcos/edit";
 		}
-		model.addAttribute("barco", barcoService.createBarco(barco));
+		model.addAttribute("barco", boatService.createBarco(boat));
 		return "barcos/show";
 	}
 	
 	@GetMapping("/listBarco")
 	public String listBarcos(Model model) {
-	    model.addAttribute("barcos", barcoService.getAllBarcos());
+	    model.addAttribute("barcos", boatService.getAllBarcos());
 	    return "barcos/list";
 	}
 	
 	
 	@GetMapping("/delete/{numeroMatricula}")
 	public String deleteBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
-	    Barco barco = barcoService.findById(numeroMatricula).orElse(null);
-	    barcoService.deleteBarco(barco);
+	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
+	    boatService.deleteBarco(boat);
 	    return "redirect:/barcos/listBarco";
 	}
 	
 	@GetMapping("/show/{numeroMatricula}")
 	public String showBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
-	    Barco barco = barcoService.findById(numeroMatricula)
+	    Boat boat = boatService.findById(numeroMatricula)
 	      .orElse(null);
-	    model.addAttribute("barco", barco);
+	    model.addAttribute("barco", boat);
 	    return "barcos/show";
 	}
 	
 	@GetMapping("/edit/{numeroMatricula}")
 	public String editBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
-	    Barco barco = barcoService.findById(numeroMatricula).orElse(null);
-	    model.addAttribute("barco", barco);
+	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
+	    model.addAttribute("barco", boat);
 		return "barcos/edit";
 	}
 }

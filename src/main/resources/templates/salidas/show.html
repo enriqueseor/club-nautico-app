@@ -48,37 +48,37 @@
 			</div>
 			<div class="card-body">
 				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="id" th:value="${salida.id}">
+					<input type="number" readonly class="form-control-plaintext" id="id" th:value="${trip.id}">
 					<label for="id">Id</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="date" readonly class="form-control-plaintext" id="fecha" th:value="${salida.fecha}">
+					<input type="date" readonly class="form-control-plaintext" id="fecha" th:value="${trip.fecha}">
 					<label for="id">Fecha</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="hora" th:value="${salida.hora}">
+					<input type="text" readonly class="form-control-plaintext" id="hora" th:value="${trip.hora}">
 					<label for="id">Hora</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="destino" th:value="${salida.destino}">
+					<input type="text" readonly class="form-control-plaintext" id="destino" th:value="${trip.destino}">
 					<label for="id">Destino</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="Socio" readonly class="form-control-plaintext" id="socio" th:value="${salida.socio.nombre}">
+					<input type="Socio" readonly class="form-control-plaintext" id="skipper" th:value="${trip.skipper.nombre}">
 					<label for="id">Socio</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="Persona" readonly class="form-control-plaintext" id="persona" th:value="${salida.persona.nombre}">
+					<input type="Persona" readonly class="form-control-plaintext" id="member" th:value="${trip.member.nombre}">
 					<label for="id">Persona</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="Barco" readonly class="form-control-plaintext" id="barco" th:value="${salida.barco.nombre}">
+					<input type="Barco" readonly class="form-control-plaintext" id="boat" th:value="${trip.boat.nombre}">
 					<label for="id">Barco</label>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/salidas/listSalidas}" class="btn btn-primary">Volver</a></li>
-			<a th:href="@{/salidas/edit/{id}(id=${salida.id})}" class="btn btn-primary">Editar salida</a>
+			<a th:href="@{/salidas/edit/{id}(id=${trip.id})}" class="btn btn-primary">Editar trip</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>
