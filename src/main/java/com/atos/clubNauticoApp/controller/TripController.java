@@ -43,7 +43,7 @@ public class TripController {
 		if(result.hasErrors()){
 			return "trip/create";
 		}
-		model.addAttribute("trip", tripService.createSalida(trip));
+		model.addAttribute("trip", tripService.createTrip(trip));
 		return "trip/show";
 		
 	}
@@ -53,13 +53,13 @@ public class TripController {
 		if(result.hasErrors()){
 			return "trip/edit";
 		}
-		model.addAttribute("trip", tripService.createSalida(trip));
+		model.addAttribute("trip", tripService.createTrip(trip));
 		return "trip/show";
 	}
 	
 	@GetMapping("/tripList")
 	public String tripList(Model model) {
-	    model.addAttribute("trip", tripService.getAllSalidas());
+	    model.addAttribute("trip", tripService.getAllTrips());
 	    return "trip/list";
 	}
 	
@@ -67,7 +67,7 @@ public class TripController {
 	@GetMapping("/delete/{id}")
 	public String deleteTrip(@PathVariable("id") Long id, Model model) {
 		Trip trip = tripService.findById(id).orElse(null);
-	    tripService.deleteSalida(trip);
+	    tripService.deleteTrip(trip);
 	    return "redirect:/trip/tripList";
 	}
 	

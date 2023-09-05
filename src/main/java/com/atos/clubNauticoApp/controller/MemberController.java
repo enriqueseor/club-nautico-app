@@ -42,7 +42,7 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "member/create";
 		}
-		model.addAttribute("member", memberService.createPersona(member));
+		model.addAttribute("member", memberService.createMember(member));
 		return "member/show";
 	}
 	
@@ -51,13 +51,13 @@ public class MemberController {
 		if(result.hasErrors()){
 			return "member/edit";
 		}
-		model.addAttribute("member", memberService.createPersona(member));
+		model.addAttribute("member", memberService.createMember(member));
 		return "member/show";
 	}
 	
 	@GetMapping("/memberList")
 	public String memberList(Model model) {
-	    model.addAttribute("member", memberService.getAllPersonas());
+	    model.addAttribute("member", memberService.getAllMembers());
 	    return "member/list";
 	}
 	
@@ -65,7 +65,7 @@ public class MemberController {
 	@GetMapping("/delete/{id}")
 	public String deleteMemeber(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
-	    memberService.deletePersona(member);
+	    memberService.deleteMember(member);
 	    return "redirect:/member/memberList";
 	}
 	

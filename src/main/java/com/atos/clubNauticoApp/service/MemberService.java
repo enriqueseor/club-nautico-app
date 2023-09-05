@@ -15,15 +15,15 @@ public class MemberService {
 	@Autowired
 	private MemberRepository memberRepository;
 	
-	public Member createPersona(Member member) {
+	public Member createMember(Member member) {
 		return memberRepository.save(member);
 	}
 
-	public List<Member> getAllPersonas() {
+	public List<Member> getAllMembers() {
 		return memberRepository.findAll();
 	}
 
-	public void deletePersona(Member member) {
+	public void deleteMember(Member member) {
 		memberRepository.delete(member);
 	}
 

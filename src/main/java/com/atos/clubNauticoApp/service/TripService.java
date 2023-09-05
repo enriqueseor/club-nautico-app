@@ -15,15 +15,15 @@ public class TripService {
 	@Autowired
 	private TripRepository tripRepository;
 	
-	public Trip createSalida(Trip trip) {
+	public Trip createTrip(Trip trip) {
 		return tripRepository.save(trip);
 	}
 
-	public List<Trip> getAllSalidas() {
+	public List<Trip> getAllTrips() {
 		return tripRepository.findAll();
 	}
 
-	public void deleteSalida(Trip trip) {
+	public void deleteTrip(Trip trip) {
 		tripRepository.delete(trip);
 	}
 

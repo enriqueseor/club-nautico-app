@@ -43,7 +43,7 @@ public class SkipperController {
 		if(result.hasErrors()){
 			return "skipper/create";
 		}
-		model.addAttribute("skipper", skipperService.createSocio(skipper));
+		model.addAttribute("skipper", skipperService.createSkipper(skipper));
 		return "skipper/show";
 		
 	}
@@ -53,20 +53,20 @@ public class SkipperController {
 		if(result.hasErrors()){
 			return "skipper/edit";
 		}
-		model.addAttribute("socio", skipperService.createSocio(skipper));
+		model.addAttribute("socio", skipperService.createSkipper(skipper));
 		return "socios/show";
 	}
 	
 	@GetMapping("/skipperList")
 	public String skipperList(Model model) {
-	    model.addAttribute("skipper", skipperService.getAllSocios());
+	    model.addAttribute("skipper", skipperService.getAllSkippers());
 	    return "skipper/list";
 	}
-	
+
 	@GetMapping("/delete/{id}")
 	public String deleteSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id).orElse(null);
-	    skipperService.deleteSocio(skipper);
+	    skipperService.deleteSkipper(skipper);
 	    return "redirect:/skipper/skipperList";
 	}
 	

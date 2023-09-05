@@ -19,15 +19,15 @@ public class BoatService {
 		return boatRepository.save(boat);
 	}
 
-	public List<Boat> getAllBarcos() {
+	public List<Boat> getAllBoats() {
 		return boatRepository.findAll();
 	}
 
-	public void deleteBarco(Boat boat) {
+	public void deleteBoat(Boat boat) {
 		boatRepository.delete(boat);
 	}
 
-	public Optional<Boat> findById(Long numeroMatricula) {
-		return boatRepository.findById(numeroMatricula);
+	public Optional<Boat> findById(Long boatRegistration) {
+		return boatRepository.findById(boatRegistration);
 	}
 }

@@ -10,5 +10,5 @@ public interface SkipperRepository extends JpaRepository<Skipper, Long>{
 
 	Optional<Skipper> findByDni(String dni);
 	
-	List<Skipper> findAllByOrderByNombreDesc();
+	List<Skipper> findAllByOrderByNameDesc();
 }

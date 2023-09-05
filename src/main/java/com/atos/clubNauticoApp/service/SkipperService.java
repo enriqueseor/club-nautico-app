@@ -15,15 +15,15 @@ public class SkipperService {
 	@Autowired
 	private SkipperRepository skipperRepository;
 	
-	public Skipper createSocio(Skipper skipper) {
+	public Skipper createSkipper(Skipper skipper) {
 		return skipperRepository.save(skipper);
 	}
 
-	public List<Skipper> getAllSocios() {
+	public List<Skipper> getAllSkippers() {
 		return skipperRepository.findAll();
 	}
 
-	public void deleteSocio(Skipper skipper) {
+	public void deleteSkipper(Skipper skipper) {
 		skipperRepository.delete(skipper);
 	}
 
@@ -31,8 +31,8 @@ public class SkipperService {
 		return skipperRepository.findById(id);
 	}
 	
-	public List<Skipper> findAllByOrderByNombre() {
-		return skipperRepository.findAllByOrderByNombreDesc();
+	public List<Skipper> findAllByOrderByName() {
+		return skipperRepository.findAllByOrderByNameDesc();
 	}
 	
 	public Optional<Skipper> findByDni(String dni) {

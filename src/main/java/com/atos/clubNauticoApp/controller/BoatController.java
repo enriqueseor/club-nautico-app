@@ -34,7 +34,7 @@ public class BoatController {
 	@GetMapping("/create")
 	public String boatCreateForm(Model model) {
 		model.addAttribute("boat", new Boat());
-		List<Skipper> skippersList = skipperService.findAllByOrderByNombre();
+		List<Skipper> skippersList = skipperService.findAllByOrderByName();
 		model.addAttribute("memberList", skippersList);
 		return "boat/create";
 		
@@ -68,7 +68,7 @@ public class BoatController {
 	
 	@GetMapping("/boatList")
 	public String boatList(Model model) {
-	    model.addAttribute("boat", boatService.getAllBarcos());
+	    model.addAttribute("boat", boatService.getAllBoats());
 	    return "boat/list";
 	}
 	
@@ -76,7 +76,7 @@ public class BoatController {
 	@GetMapping("/delete/{numeroMatricula}")
 	public String deleteBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
-	    boatService.deleteBarco(boat);
+	    boatService.deleteBoat(boat);
 	    return "redirect:/boat/boatList";
 	}
 	
