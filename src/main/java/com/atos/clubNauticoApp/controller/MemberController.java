@@ -18,71 +18,69 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/personas")
+@RequestMapping("/member")
 public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
 	
 	@GetMapping("/create")
-	public String personaCreateForm(Model model) {
-		model.addAttribute("persona", new Member());
-		return "personas/create";
+	public String memberCreateForm(Model model) {
+		model.addAttribute("member", new Member());
+		return "member/create";
 		
 	}
 	
 	@GetMapping("/edit")
-	public String personaEditForm(@ModelAttribute Member member, Model model) {
-		model.addAttribute("persona", member);
-		return "personas/edit";
-		
+	public String memberEditForm(@ModelAttribute Member member, Model model) {
+		model.addAttribute("member", member);
+		return "member/edit";
 	}
 	
 	@PostMapping
-	public String createPersona(@ModelAttribute @Valid Member member, BindingResult result, Model model, HttpServletRequest request) {
+	public String createMember(@ModelAttribute @Valid Member member, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "personas/create";
+			return "member/create";
 		}
-		model.addAttribute("persona", memberService.createPersona(member));
-		return "personas/show";
-		
+		model.addAttribute("member", memberService.createPersona(member));
+		return "member/show";
 	}
 	
 	@PutMapping
-	public String editPersona(@ModelAttribute @Valid Member member, BindingResult result, Model model) {
+	public String editMember(@ModelAttribute @Valid Member member, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "personas/edit";
+			return "member/edit";
 		}
-		model.addAttribute("persona", memberService.createPersona(member));
-		return "personas/show";
+		model.addAttribute("member", memberService.createPersona(member));
+		return "member/show";
 	}
 	
-	@GetMapping("/listPersonas")
-	public String listStudent(Model model) {
-	    model.addAttribute("personas", memberService.getAllPersonas());
-	    return "personas/list";
+	@GetMapping("/memberList")
+	public String memberList(Model model) {
+	    model.addAttribute("member", memberService.getAllPersonas());
+	    return "member/list";
 	}
 	
 	
 	@GetMapping("/delete/{id}")
-	public String deletePersona(@PathVariable("id") Long id, Model model) {
+	public String deleteMemeber(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
 	    memberService.deletePersona(member);
-	    return "redirect:/personas/listPersonas";
+	    return "redirect:/member/memberList";
 	}
 	
 	@GetMapping("/show/{id}")
 	public String showPersona(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id)
 	      .orElse(null);
-	    model.addAttribute("persona", member);
-	    return "personas/show";
+	    model.addAttribute("member", member);
+	    return "member/show";
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editPersona(@PathVariable("id") Long id, Model model) {
+	public String editMember(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
-	    model.addAttribute("persona", member);
-		return "personas/edit";
+	    model.addAttribute("member", member);
+		return "member/edit";
 	}
 }

@@ -2,17 +2,18 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-	<title>Socios</title>
+	<title th:text="#{label_persona}"></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 		crossorigin="anonymous"></script>
-	<link href="/css/club-nautico.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/club-nautico.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
+
 	<div class="container my-5">
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
@@ -30,9 +31,9 @@
 								Administración
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listPersonas"
+								<li><a class="dropdown-item" href="/users/listUsers"
 										th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Socios</a></li>
+								<li><a class="dropdown-item" href="#">Socios</a></li>
 								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/barcos/listBarco}">Barcos</a></li>
 							</ul>
 						</li>
@@ -43,44 +44,30 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Socios</h1>
+				<h1 th:text="#{label_persona}"></h1>
 			</div>
 			<div class="card-body">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Dni</th>
-							<th>Nombre</th>
-							<th>Es patrón</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="skipper : ${socios}" th:if="${socios.size()} > 0">
-							<td th:text="${skipper.dni}"></td>
-							<td th:text="${skipper.nombre}"></td>
-							<td th:text="${skipper.patron} ? 'Sí' : 'No'">Patrón</td>
-							<td>
-								<a th:href="@{/socios/show/{id}(id=${skipper.id})}"
-									class="btn btn-primary btn-sm">Mostrar</a>
-								<a th:href="@{/socios/edit/{id}(id=${skipper.id})}"
-								   class="btn btn-warning btn-sm">Editar</a>
-								<a th:href="@{/socios/delete/{id}(id=${skipper.id})}"
-								   class="btn btn-danger btn-sm">Borrar</a>
-							</td>
-						</tr>
-						<tr th:if="${socios.size()} == 0">
-							<td colspan="3" class="text-center">No se han encontrado registros</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="form-floating mb-3">
+					<input type="text" readonly class="form-control-plaintext" id="dni" th:value="${member.dni}">
+					<label for="dni">DNI</label>
+				</div>
+
+				<div class="form-floating mb-3">
+					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${member.nombre}">
+					<label for="dni">Nombre</label>
+				</div>
+
+				<div class="form-floating mb-3">
+					<input type="text" readonly class="form-control-plaintext" id="patron"
+						th:value="${member.patron} ? 'Sí' : 'No'">
+					<label for="dni">Patron</label>
+				</div>
 			</div>
+
 		</div>
-
-
 		<div class="d-flex justify-content-between">
-			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
-			<a href="/socios/create" class="btn btn-primary" th:href="@{/socios/create}">Nuevo skipper</a>
-			
+			<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Volver</a></li>
+			<a th:href="@{/personas/edit/{id}(id=${member.id})}" class="btn btn-primary">Editar member</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

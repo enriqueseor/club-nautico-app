@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/barcos")
+@RequestMapping("/boat")
 public class BoatController {
 
 	@Autowired
@@ -32,67 +32,67 @@ public class BoatController {
 	private SkipperService skipperService;
 	
 	@GetMapping("/create")
-	public String barcoCreateForm(Model model) {
-		model.addAttribute("barco", new Boat());
-		List<Skipper> listaSkippers = skipperService.findAllByOrderByNombre();
-		model.addAttribute("listaSocios", listaSkippers);
-		return "barcos/create";
+	public String boatCreateForm(Model model) {
+		model.addAttribute("boat", new Boat());
+		List<Skipper> skippersList = skipperService.findAllByOrderByNombre();
+		model.addAttribute("memberList", skippersList);
+		return "boat/create";
 		
 	}
 	
 	@GetMapping("/edit")
-	public String barcoEditForm(@ModelAttribute Boat boat, Model model) {
-		model.addAttribute("barco", boat);
-		return "barcos/edit";
+	public String boatEditForm(@ModelAttribute Boat boat, Model model) {
+		model.addAttribute("boat", boat);
+		return "boat/edit";
 		
 	}
 	
 	@PostMapping
-	public String createBarco(@ModelAttribute @Valid Boat boat, BindingResult result, Model model, HttpServletRequest request) {
+	public String createBoat(@ModelAttribute @Valid Boat boat, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "barcos/create";
+			return "boat/create";
 		}
-		model.addAttribute("barco", boatService.createBarco(boat));
-		return "barcos/show";
+		model.addAttribute("boat", boatService.createBoat(boat));
+		return "boat/show";
 		
 	}
 	
 	@PutMapping
-	public String editBarco(@ModelAttribute @Valid Boat boat, BindingResult result, Model model) {
+	public String editBoat(@ModelAttribute @Valid Boat boat, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "barcos/edit";
+			return "boat/edit";
 		}
-		model.addAttribute("barco", boatService.createBarco(boat));
-		return "barcos/show";
+		model.addAttribute("boat", boatService.createBoat(boat));
+		return "boat/show";
 	}
 	
-	@GetMapping("/listBarco")
-	public String listBarcos(Model model) {
-	    model.addAttribute("barcos", boatService.getAllBarcos());
-	    return "barcos/list";
+	@GetMapping("/boatList")
+	public String boatList(Model model) {
+	    model.addAttribute("boat", boatService.getAllBarcos());
+	    return "boat/list";
 	}
 	
 	
 	@GetMapping("/delete/{numeroMatricula}")
-	public String deleteBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
+	public String deleteBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
 	    boatService.deleteBarco(boat);
-	    return "redirect:/barcos/listBarco";
+	    return "redirect:/boat/boatList";
 	}
 	
 	@GetMapping("/show/{numeroMatricula}")
-	public String showBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
+	public String showBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula)
 	      .orElse(null);
-	    model.addAttribute("barco", boat);
-	    return "barcos/show";
+	    model.addAttribute("boat", boat);
+	    return "boat/show";
 	}
 	
 	@GetMapping("/edit/{numeroMatricula}")
-	public String editBarco(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
+	public String editBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
 	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
-	    model.addAttribute("barco", boat);
-		return "barcos/edit";
+	    model.addAttribute("boat", boat);
+		return "boat/edit";
 	}
 }
 

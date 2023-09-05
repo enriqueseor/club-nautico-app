@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "SALIDAS")
+@Table(name = "TRIP")
 @AllArgsConstructor
 public class Trip implements Serializable{
 
@@ -25,37 +25,37 @@ public class Trip implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_salida")
+	@Column(name="id_trip")
 	private Long id;
 	
-	private Date fecha;
+	private Date date;
 	
-	private String hora;
+	private String time;
 	
-	private String destino;
+	private String destination;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_persona")
+	@JoinColumn(name="id_member")
 	private Member member;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_barco")
+	@JoinColumn(name="id_boat")
 	private Boat boat;
 
-	public Trip(Date fecha, String hora, String destino, Member member, Boat boat) {
+	public Trip(Date date, String time, String destination, Member member, Boat boat) {
 		super();
-		this.fecha = fecha;
-		this.hora = hora;
-		this.destino = destino;
+		this.date = date;
+		this.time = time;
+		this.destination = destination;
 		this.member = member;
 		this.boat = boat;
 	}
 
-	public Trip(Date fecha, String hora, String destino) {
+	public Trip(Date date, String time, String destination) {
 		super();
-		this.fecha = fecha;
-		this.hora = hora;
-		this.destino = destino;
+		this.date = date;
+		this.time = time;
+		this.destination = destination;
 	}
 	
 	public Trip() {
@@ -70,43 +70,43 @@ public class Trip implements Serializable{
 		this.id = id;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public String getHora() {
-		return hora;
+	public String getTime() {
+		return time;
 	}
 
-	public void setHora(String hora) {
-		this.hora = hora;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
-	public String getDestino() {
-		return destino;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setDestino(String destino) {
-		this.destino = destino;
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 
-	public Member getPersona() {
+	public Member getMember() {
 		return member;
 	}
 
-	public void setPersona(Member member) {
+	public void setMember(Member member) {
 		this.member = member;
 	}
 
-	public Boat getBarco() {
+	public Boat getBoat() {
 		return boat;
 	}
 
-	public void setBarco(Boat boat) {
+	public void setBoat(Boat boat) {
 		this.boat = boat;
 	}
 }

@@ -12,73 +12,73 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Barcos")
+@Table(name="Boat")
 public class Boat implements Serializable{
 
 	private static final long serialVersionUID = 2229450999885454481L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long numeroMatricula;
+	private Long boatRegistration;
 	
-	private String nombre;
+	private String name;
 	
-	private int numeroAmarre;
+	private int mooringNUmber;
 	
-	private double cuota;
+	private double fee;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_socio")
+	@JoinColumn(name="id_member")
 	private Skipper skipper;
 	
-	public Boat(String nombre, int numeroAmarre, double cuota, Skipper skipper) {
-		this.nombre = nombre;
-		this.numeroAmarre = numeroAmarre;
-		this.cuota = cuota;
+	public Boat(String name, int mooringNUmber, double fee, Skipper skipper) {
+		this.name = name;
+		this.mooringNUmber = mooringNUmber;
+		this.fee = fee;
 		this.skipper = skipper;
 	}
 
-	public Boat(Long numeroMatricula, String nombre, int numeroAmarre, double cuota) {
+	public Boat(Long boatRegistration, String name, int mooringNUmber, double fee) {
 		super();
-		this.numeroMatricula = numeroMatricula;
-		this.nombre = nombre;
-		this.numeroAmarre = numeroAmarre;
-		this.cuota = cuota;
+		this.boatRegistration = boatRegistration;
+		this.name = name;
+		this.mooringNUmber = mooringNUmber;
+		this.fee = fee;
 	}
 
 	public Boat() {
 	}
 
-	public Long getNumeroMatricula() {
-		return numeroMatricula;
+	public Long getBoatRegistration() {
+		return boatRegistration;
 	}
 
-	public void setNumeroMatricula(Long numeroMatricula) {
-		this.numeroMatricula = numeroMatricula;
+	public void setBoatRegistration(Long boatRegistration) {
+		this.boatRegistration = boatRegistration;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getNumeroAmarre() {
-		return numeroAmarre;
+	public int getMooringNUmber() {
+		return mooringNUmber;
 	}
 
-	public void setNumeroAmarre(int numeroAmarre) {
-		this.numeroAmarre = numeroAmarre;
+	public void setMooringNUmber(int mooringNUmber) {
+		this.mooringNUmber = mooringNUmber;
 	}
 
-	public double getCuota() {
-		return cuota;
+	public double getFee() {
+		return fee;
 	}
 
-	public void setCuota(double cuota) {
-		this.cuota = cuota;
+	public void setFee(double fee) {
+		this.fee = fee;
 	}
 
 	public Skipper getSocio() {

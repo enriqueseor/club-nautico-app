@@ -15,7 +15,7 @@ public class BoatService {
 	@Autowired
 	private BoatRepository boatRepository;
 	
-	public Boat createBarco(Boat boat) {
+	public Boat createBoat(Boat boat) {
 		return boatRepository.save(boat);
 	}
 

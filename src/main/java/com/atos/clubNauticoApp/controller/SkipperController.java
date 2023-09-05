@@ -18,71 +18,70 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/socios")
+@RequestMapping("/skipper")
 public class SkipperController {
 
 	@Autowired
 	private SkipperService skipperService;
 	
 	@GetMapping("/create")
-	public String socioCreateForm(Model model) {
-		model.addAttribute("socio", new Skipper());
-		return "socios/create";
+	public String skipperCreateForm(Model model) {
+		model.addAttribute("skipper", new Skipper());
+		return "skipper/create";
 		
 	}
 	
 	@GetMapping("/edit")
-	public String socioEditForm(@ModelAttribute Skipper skipper, Model model) {
-		model.addAttribute("socio", skipper);
-		return "socios/edit";
+	public String skipperEditForm(@ModelAttribute Skipper skipper, Model model) {
+		model.addAttribute("skipper", skipper);
+		return "skipper/edit";
 		
 	}
 	
 	@PostMapping
-	public String createSocio(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model, HttpServletRequest request) {
+	public String createSkipper(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "socios/create";
+			return "skipper/create";
 		}
-		model.addAttribute("socio", skipperService.createSocio(skipper));
-		return "socios/show";
+		model.addAttribute("skipper", skipperService.createSocio(skipper));
+		return "skipper/show";
 		
 	}
 	
 	@PutMapping
-	public String editSocio(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model) {
+	public String editSkipper(@ModelAttribute @Valid Skipper skipper, BindingResult result, Model model) {
 		if(result.hasErrors()){
-			return "socios/edit";
+			return "skipper/edit";
 		}
 		model.addAttribute("socio", skipperService.createSocio(skipper));
 		return "socios/show";
 	}
 	
-	@GetMapping("/listSocio")
-	public String listSocio(Model model) {
-	    model.addAttribute("socios", skipperService.getAllSocios());
-	    return "socios/list";
+	@GetMapping("/skipperList")
+	public String skipperList(Model model) {
+	    model.addAttribute("skipper", skipperService.getAllSocios());
+	    return "skipper/list";
 	}
 	
-	
 	@GetMapping("/delete/{id}")
-	public String deleteSocio(@PathVariable("id") Long id, Model model) {
+	public String deleteSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id).orElse(null);
 	    skipperService.deleteSocio(skipper);
-	    return "redirect:/socios/listSocio";
+	    return "redirect:/skipper/skipperList";
 	}
 	
 	@GetMapping("/show/{id}")
-	public String showSocio(@PathVariable("id") Long id, Model model) {
+	public String showSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id)
 	      .orElse(null);
-	    model.addAttribute("socio", skipper);
-	    return "socios/show";
+	    model.addAttribute("skipper", skipper);
+	    return "skipper/show";
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String editSocio(@PathVariable("id") Long id, Model model) {
+	public String editSkipper(@PathVariable("id") Long id, Model model) {
 	    Skipper skipper = skipperService.findById(id).orElse(null);
-	    model.addAttribute("socio", skipper);
-		return "socios/edit";
+	    model.addAttribute("skipper", skipper);
+		return "skipper/edit";
 	}
 }

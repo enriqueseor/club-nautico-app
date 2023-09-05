@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoatRepository extends JpaRepository<Boat, Long>{
 	
-	public Optional<Boat> findByNumeroMatricula(Long numeroMatricula);
+	Optional<Boat> findByBoatRegistration(Long boatRegistration);
 }

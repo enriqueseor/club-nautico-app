@@ -18,7 +18,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "SOCIOS")
+@Table(name = "SKIPPER")
 @AllArgsConstructor
 public class Skipper implements Serializable{
 
@@ -26,7 +26,7 @@ public class Skipper implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_socio", unique = true)
+	@Column(name = "id_member", unique = true)
 	private Long id;
 	
 	@Column(name = "DNI", unique = true)
@@ -34,29 +34,29 @@ public class Skipper implements Serializable{
 	
 	@NotBlank
 	@Size(min = 3)
-	@Column(name="NOMBRE")
-	private String nombre;
+	@Column(name="NANE")
+	private String name;
 	
 	@Column(name="PATRON")
 	private Boolean patron;
 	
-	@OneToMany(mappedBy="socio", fetch = FetchType.LAZY)
-	@Column(name="Barcos")
+	@OneToMany(mappedBy="skipper", fetch = FetchType.LAZY)
+	@Column(name="Boat")
 	private List<Boat> boat;
 
 	
-	public Skipper(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron, List<Boat> boat) {
+	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean patron, List<Boat> boat) {
 		super();
 		this.dni = dni;
-		this.nombre = nombre;
+		this.name = name;
 		this.patron = patron;
 		this.boat = boat;
 	}
 
-	public Skipper(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron) {
+	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean patron) {
 		super();
 		this.dni = dni;
-		this.nombre = nombre;
+		this.name = name;
 		this.patron = patron;
 	}
 
@@ -80,12 +80,12 @@ public class Skipper implements Serializable{
 		this.dni = dni;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Boolean getPatron() {
@@ -96,11 +96,11 @@ public class Skipper implements Serializable{
 		this.patron = patron;
 	}
 
-	public List<Boat> getBarco() {
+	public List<Boat> getBoat() {
 		return boat;
 	}
 
-	public void setBarco(List<Boat> boat) {
+	public void setBoat(List<Boat> boat) {
 		this.boat = boat;
 	}
 }

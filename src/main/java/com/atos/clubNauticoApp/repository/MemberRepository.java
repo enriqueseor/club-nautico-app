@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 	
-	public Optional<Member> findByDni(String dni);
+	Optional<Member> findByDni(String dni);
 
 }

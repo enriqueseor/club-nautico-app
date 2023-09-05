@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "PERSONAS")
+@Table(name = "MEMBER")
 @AllArgsConstructor
 public class Member implements Serializable {
 
@@ -31,8 +31,8 @@ public class Member implements Serializable {
 	
 	@NotBlank
 	@Size(min = 3)
-	@Column(name="NOMBRE")
-	private String nombre;
+	@Column(name="NAME")
+	private String name;
 	
 	@Column(name="PATRON")
 	private Boolean patron;
@@ -53,12 +53,12 @@ public class Member implements Serializable {
 		this.dni = dni;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Boolean getPatron() {
@@ -69,10 +69,10 @@ public class Member implements Serializable {
 		this.patron = patron;
 	}
 
-	public Member(String dni, @NotBlank @Size(min = 3) String nombre, Boolean patron) {
+	public Member(String dni, @NotBlank @Size(min = 3) String name, Boolean patron) {
 		super();
 		this.dni = dni;
-		this.nombre = nombre;
+		this.name = name;
 		this.patron = patron;
 	}
 

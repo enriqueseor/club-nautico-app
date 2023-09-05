@@ -8,5 +8,5 @@ import com.atos.clubNauticoApp.model.Trip;
 
 public interface TripRepository extends JpaRepository<Trip, Long>{
 
-	public Optional<Trip> findById(Long id);
+	Optional<Trip> findById(Long id);
 }

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SkipperRepository extends JpaRepository<Skipper, Long>{
 
-	public Optional<Skipper> findByDni(String dni);
+	Optional<Skipper> findByDni(String dni);
 	
-	public List<Skipper> findAllByOrderByNombreDesc();
+	List<Skipper> findAllByOrderByNombreDesc();
 }
