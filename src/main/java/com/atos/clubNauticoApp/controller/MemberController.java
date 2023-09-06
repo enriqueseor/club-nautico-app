@@ -57,13 +57,12 @@ public class MemberController {
 	
 	@GetMapping("/memberList")
 	public String memberList(Model model) {
-	    model.addAttribute("member", memberService.getAllMembers());
+	    model.addAttribute("members", memberService.getAllMembers());
 	    return "members/list";
 	}
 	
-	
 	@GetMapping("/delete/{id}")
-	public String deleteMemeber(@PathVariable("id") Long id, Model model) {
+	public String deleteMember(@PathVariable("id") Long id, Model model) {
 	    Member member = memberService.findById(id).orElse(null);
 	    memberService.deleteMember(member);
 	    return "redirect:/members/memberList";

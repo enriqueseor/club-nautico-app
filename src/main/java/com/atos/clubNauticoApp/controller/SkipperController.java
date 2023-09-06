@@ -28,14 +28,12 @@ public class SkipperController {
 	public String skipperCreateForm(Model model) {
 		model.addAttribute("skipper", new Skipper());
 		return "skippers/create";
-		
 	}
 	
 	@GetMapping("/edit")
 	public String skipperEditForm(@ModelAttribute Skipper skipper, Model model) {
 		model.addAttribute("skipper", skipper);
 		return "skippers/edit";
-		
 	}
 	
 	@PostMapping
@@ -45,7 +43,6 @@ public class SkipperController {
 		}
 		model.addAttribute("skipper", skipperService.createSkipper(skipper));
 		return "skippers/show";
-		
 	}
 	
 	@PutMapping
@@ -59,7 +56,7 @@ public class SkipperController {
 	
 	@GetMapping("/skipperList")
 	public String skipperList(Model model) {
-	    model.addAttribute("skipper", skipperService.getAllSkippers());
+	    model.addAttribute("skippers", skipperService.getAllSkippers());
 	    return "skippers/list";
 	}
 

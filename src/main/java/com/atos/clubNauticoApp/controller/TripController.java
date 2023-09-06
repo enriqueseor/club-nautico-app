@@ -28,14 +28,12 @@ public class TripController {
 	public String tripCreateForm(Model model) {
 		model.addAttribute("trip", new Trip());
 		return "trips/create";
-		
 	}
 	
 	@GetMapping("/edit")
 	public String tripEditForm(@ModelAttribute Trip trip, Model model) {
 		model.addAttribute("trip", trip);
 		return "trips/edit";
-		
 	}
 	
 	@PostMapping
@@ -45,7 +43,6 @@ public class TripController {
 		}
 		model.addAttribute("trip", tripService.createTrip(trip));
 		return "trips/show";
-		
 	}
 	
 	@PutMapping
@@ -59,11 +56,10 @@ public class TripController {
 	
 	@GetMapping("/tripList")
 	public String tripList(Model model) {
-	    model.addAttribute("trip", tripService.getAllTrips());
+	    model.addAttribute("trips", tripService.getAllTrips());
 	    return "trips/list";
 	}
-	
-	
+
 	@GetMapping("/delete/{id}")
 	public String deleteTrip(@PathVariable("id") Long id, Model model) {
 		Trip trip = tripService.findById(id).orElse(null);

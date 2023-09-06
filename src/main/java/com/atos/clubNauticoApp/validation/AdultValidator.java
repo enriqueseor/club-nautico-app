@@ -1,6 +1,5 @@
 package com.atos.clubNauticoApp.validation;
 
-
 import java.util.Calendar;
 import java.util.Date;
 

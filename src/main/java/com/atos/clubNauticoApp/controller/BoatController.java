@@ -35,26 +35,23 @@ public class BoatController {
 	public String boatCreateForm(Model model) {
 		model.addAttribute("boat", new Boat());
 		List<Skipper> skippersList = skipperService.findAllByOrderByName();
-		model.addAttribute("memberList", skippersList);
+		model.addAttribute("skipperList", skippersList);
 		return "boats/create";
-		
 	}
 	
 	@GetMapping("/edit")
 	public String boatEditForm(@ModelAttribute Boat boat, Model model) {
 		model.addAttribute("boat", boat);
-		return "boat/edit";
-		
+		return "boats/edit";
 	}
 	
 	@PostMapping
 	public String createBoat(@ModelAttribute @Valid Boat boat, BindingResult result, Model model, HttpServletRequest request) {
 		if(result.hasErrors()){
-			return "boat/create";
+			return "boats/create";
 		}
 		model.addAttribute("boat", boatService.createBoat(boat));
-		return "boat/show";
-		
+		return "boats/show";
 	}
 	
 	@PutMapping
@@ -68,7 +65,7 @@ public class BoatController {
 	
 	@GetMapping("/boatList")
 	public String boatList(Model model) {
-	    model.addAttribute("boat", boatService.getAllBoats());
+	    model.addAttribute("boats", boatService.getAllBoats());
 	    return "boats/list";
 	}
 
@@ -87,9 +84,9 @@ public class BoatController {
 	    return "boats/show";
 	}
 	
-	@GetMapping("/edit/{numeroMatricula}")
-	public String editBoat(@PathVariable("numeroMatricula") Long numeroMatricula, Model model) {
-	    Boat boat = boatService.findById(numeroMatricula).orElse(null);
+	@GetMapping("/edit/{boatRegistration}")
+	public String editBoat(@PathVariable("boatRegistration") Long boatRegistration, Model model) {
+	    Boat boat = boatService.findById(boatRegistration).orElse(null);
 	    model.addAttribute("boat", boat);
 		return "boats/edit";
 	}
