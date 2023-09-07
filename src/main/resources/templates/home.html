@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
 	<title th:text="#{label_title_home}"></title>
@@ -22,17 +22,16 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/users/listUsers" th:href="@{/salidas/listSalidas}">Salidas</a>
+							<a class="nav-link" href="/templates/trips/list.html" th:href="@{/trips/tripList}">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Administración
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Socios</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/barcos/listBarco}">Barcos</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html" th:href="@{/skippers/skipperList}">Skipper</a></li>
+								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatList}">Boats</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -41,7 +40,7 @@
 		</nav>
 
 		<div class="text-center">
-			<img th:src="@{/images/logo.png}" alt="Barco" />
+			<img th:src="@{/images/logo.png}" alt="Boat"  src="/static/images/logo.png"/>
 			<h1 class="mt-3">Bienvenido al club</h1>
 		</div>
 	</div>

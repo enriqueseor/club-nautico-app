@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
 	<title th:text="#{label_persona}"></title>
@@ -23,18 +23,16 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Salidas</a>
+							<a class="nav-link" href="#">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Administración
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listUsers"
-										th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="#">Socios</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/barcos/listBarco}">Barcos</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
+								<li><a class="dropdown-item" href="#">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatList}">Boats</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -53,21 +51,24 @@
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${member.nombre}">
-					<label for="dni">Nombre</label>
+					<label for="name">
+						<input type="text" readonly class="form-control-plaintext" id="name" th:value="${member.name}">
+					</label>
+					<label for="dni">Name</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="patron"
-						th:value="${member.patron} ? 'Sí' : 'No'">
+					<label for="patron">
+						<input type="text" readonly class="form-control-plaintext" id="patron" th:value="${member.patron} ? 'Sí' : 'No'">
+					</label>
 					<label for="dni">Patron</label>
 				</div>
 			</div>
 
 		</div>
 		<div class="d-flex justify-content-between">
-			<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Volver</a></li>
-			<a th:href="@{/personas/edit/{id}(id=${member.id})}" class="btn btn-primary">Editar member</a>
+			<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Back</a>
+			<a th:href="@{/personas/edit/{id}(id=${member.id})}" class="btn btn-primary">Edit Member</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
-	<title th:text="#{label_barco}"></title>
+	<title th:text="#{label_boat}"></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -23,16 +23,15 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Salidas</a>
+							<a class="nav-link" href="#">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Administración
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/personas/listPersonas}">Members</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html" th:href="@{/skippers/skipperList}">Skippers</a></li>
 								<li><a class="dropdown-item" href="#">Boats</a></li>
 							</ul>
 						</li>
@@ -43,39 +42,47 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1 th:text="#{label_barco}"></h1>
+				<h1 th:text="#{label_boat}"></h1>
 			</div>
 			<div class="card-body">
 				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="numeroMatricula" th:value="${boat.numeroMatricula}">
-					<label for="numeroMatricula">Numero Matricula</label>
+					<input type="number" readonly class="form-control-plaintext" id="boatRegistration" th:value="${boat.boatRegistration}">
+					<label for="boatRegistration">Boat Registration</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="nombre" th:value="${boat.nombre}">
-					<label for="numeroMatricula">Nombre</label>
+					<label for="name">
+						<input type="text" readonly class="form-control-plaintext" id="name" th:value="${boat.name}">
+					</label>
+					<label for="boatRegistration">Nombre</label>
 				</div>
 
 				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="numeroAmarre" th:value="${boat.numeroAmarre}">
-					<label for="numeroMatricula">Numero Amarre</label>
+					<label for="mooringNUmber">
+						<input type="number" readonly class="form-control-plaintext" id="mooringNUmber" th:value="${boat.mooringNUmber}">
+					</label>
+					<label for="boatRegistration">Mooring Number</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="number" step="any" readonly class="form-control-plaintext" id="cuota" th:value="${boat.cuota}">
-					<label for="numeroMatricula">Cuota</label>
+					<label for="fee">
+						<input type="number" step="any" readonly class="form-control-plaintext" id="fee" th:value="${boat.fee}">
+					</label>
+					<label for="boatRegistration">Fee</label>
 				</div>
 				
 				<div class="form-floating mb-3">
-					<input type="Socio" readonly class="form-control-plaintext" id="skipper" th:value="${boat.skipper.nombre}">
-					<label for="numeroMatricula">Socio</label>
+					<label for="skipper">
+						<input readonly class="form-control-plaintext" id="skipper" th:value="${boat.skipper.name}">
+					</label>
+					<label for="boatRegistration">Skipper</label>
 				</div>
 			</div>
 
 		</div>
 		<div class="d-flex justify-content-between">
-			<a th:href="@{/barcos/listBarco}" class="btn btn-primary">Volver</a></li>
-			<a th:href="@{/barcos/edit/{numeroMatricula}(numeroMatricula=${boat.numeroMatricula})}" class="btn btn-primary">Editar boat</a>
+			<a th:href="@{/boats/boatList}" class="btn btn-primary">Back</a>
+			<a th:href="@{/boats/edit/{boatRegistration}(boatRegistration=${boat.boatRegistration})}" class="btn btn-primary">Edit boat</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

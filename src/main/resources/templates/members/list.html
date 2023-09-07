@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
 	<title>Personas</title>
@@ -22,18 +22,16 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Salidas</a>
+							<a class="nav-link" href="#">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Administración
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listPersonas"
-										th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="#">Socios</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/barcos/listBarco}">Barcos</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
+								<li><a class="dropdown-item" href="#">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatList}">Boats</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -43,33 +41,33 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Personas</h1>
+				<h1>Members</h1>
 			</div>
 			<div class="card-body">
 				<table class="table">
 					<thead>
 						<tr>
 							<th>Dni</th>
-							<th>Nombre</th>
+							<th>Name</th>
 							<th>Es patrón</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="member : ${personas}" th:if="${personas.size()} > 0">
+						<tr th:each="member : ${members}" th:if="${members.size()} > 0">
 							<td th:text="${member.dni}"></td>
-							<td th:text="${member.nombre}"></td>
+							<td th:text="${member.name}"></td>
 							<td th:text="${member.patron} ? 'Sí' : 'No'">Patrón</td>
 							<td>
 								<a th:href="@{/personas/show/{id}(id=${member.id})}"
-									class="btn btn-primary btn-sm">Mostrar</a>
+									class="btn btn-primary btn-sm">Show</a>
 								<a th:href="@{/personas/edit/{id}(id=${member.id})}"
-								   class="btn btn-warning btn-sm">Editar</a>
+								   class="btn btn-warning btn-sm">Edit</a>
 								<a th:href="@{/personas/delete/{id}(id=${member.id})}"
-								   class="btn btn-danger btn-sm">Borrar</a>
+								   class="btn btn-danger btn-sm">Delete</a>
 							</td>
 						</tr>
 						<tr th:if="${personas.size()} == 0">
-							<td colspan="3" class="text-center">No se han encontrado registros</td>
+							<td colspan="3" class="text-center">Records not found</td>
 						</tr>
 					</tbody>
 				</table>
@@ -78,8 +76,8 @@
 
 
 		<div class="d-flex justify-content-between">
-			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
-			<a href="/personas/create" class="btn btn-primary" th:href="@{/personas/create}">Nueva member</a>
+			<a href="/templates/home.html" class="btn btn-primary" th:href="@{/}">Back</a>
+			<a href="/templates/members/create.html" class="btn btn-primary" th:href="@{/personas/create}">New member</a>
 			
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>

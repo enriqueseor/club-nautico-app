@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
-	<title>Crear Barco</title>
+	<title>Create Boat</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -22,18 +22,16 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Salidas</a>
+							<a class="nav-link" href="#">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Administración
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listUsers"
-										th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Socios</a></li>
-								<li><a class="dropdown-item" href="#">Barcos</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html" th:href="@{/skipper/skipperList}">Skipper</a></li>
+								<li><a class="dropdown-item" href="#">Boats</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -43,39 +41,41 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Editar Barco</h1>
+				<h1>Edit Boat</h1>
 			</div>
-			<form action="#" th:action="@{/barcos}" th:object="${boat}" th:method="put">
-				<input type="hidden" th:field="*{numeroMatricula}" />
+			<form action="#" th:action="@{/boats}" th:object="${boat}" th:method="put">
+				<input type="hidden" th:field="*{boatRegistration}" />
 				<div class="form-group">
-					<label for="numeroMatricula">Numero Matricula</label>
-					<input type="number" class="form-control" id="dni" name="numeroMatricula" th:field="*{numeroMatricula}">
-					<div style="color: red" th:if="${#fields.hasErrors('numeroMatricula')}" th:errors="*{numeroMatricula}"></div>
+					<label>Boat Registration</label>
+					<label for="dni">
+						<input type="number" class="form-control" id="dni" name="boatRegistration" th:field="*{boatRegistration}">
+					</label>
+					<div style="color: red" th:if="${#fields.hasErrors('boatRegistration')}" th:errors="*{boatRegistration}"></div>
 				</div>
 				<div class="form-group">
-					<label for="nombre">Nombre del boat</label>
-					<input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
-					<div style="color: red" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+					<label for="name">Boat Name</label>
+					<input type="text" class="form-control" id="name" name="name" th:field="*{name}">
+					<div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 				</div>
 				<div class="form-group">
-					<label for="numeroAmarre">Numero Amarre</label>
-					<input type="number" class="form-control" id="numeroAmarre" name="numeroAmarre" th:field="*{numeroAmarre}">
-					<div style="color: red" th:if="${#fields.hasErrors('numeroAmarre')}" th:errors="*{numeroAmarre}"></div>
+					<label for="mooringNumber">Mooring Number</label>
+					<input type="number" class="form-control" id="mooringNumber" name="mooringNumber" th:field="*{mooringNumber}">
+					<div style="color: red" th:if="${#fields.hasErrors('mooringNumber')}" th:errors="*{mooringNumber}"></div>
 				</div>
 				<div class="form-group">
-					<label for="cuota">Cuota</label>
-					<input type="number" step="any" class="form-control" id="cuota" name="cuota" th:field="*{cuota}">
-					<div style="color: red" th:if="${#fields.hasErrors('cuota')}" th:errors="*{cuota}"></div>
+					<label for="fee">Fee</label>
+					<input type="number" step="any" class="form-control" id="fee" name="fee" th:field="*{fee}">
+					<div style="color: red" th:if="${#fields.hasErrors('fee')}" th:errors="*{fee}"></div>
 				</div>
 				<div class="form-group">
-					<label for="skipper">Socio</label>
-					<input type="Socio" class="form-control" id="skipper" name="skipper" th:field="*{skipper}">
+					<label for="skipper">Skipper</label>
+					<input class="form-control" id="skipper" name="skipper" th:field="*{skipper}">
 					<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 				</div>
 
 				<div class="d-flex justify-content-between">
 					<input type="submit" class="btn btn-primary" value="Submit" />
-					<a th:href="@{/barcos/listBarco}" class="btn btn-primary">Volver</a>
+					<a th:href="@{/boats/boatList}" class="btn btn-primary">Back</a>
 				</div>
 			</form>
 		</div>

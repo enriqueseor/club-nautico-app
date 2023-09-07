@@ -64,8 +64,8 @@ public class Boat implements Serializable{
 		return mooringNUmber;
 	}
 
-	public void setMooringNumber(int mooringNUmber) {
-		this.mooringNUmber = mooringNUmber;
+	public void setMooringNumber(int mooringNumber) {
+		this.mooringNUmber = mooringNumber;
 	}
 
 	public double getFee() {

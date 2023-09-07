@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
-	<title>Salidas</title>
+	<title>Trips</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -22,18 +22,17 @@
 							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Salidas</a>
+							<a class="nav-link" href="#">Trips</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 								aria-expanded="false">
-								Administración
+								Administration
 							</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/users/listPersonas"
-										th:href="@{/personas/listPersonas}">Personas</a></li>
-								<li><a class="dropdown-item" href="/users/listUsers" th:href="@{/socios/listSocio}">Socios</a></li>
-								<li><a class="dropdown-item" href="#">Barcos</a></li>
+								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/membersList}">Members</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html" th:href="@{/skippers/skipperList}">Skippers</a></li>
+								<li><a class="dropdown-item" href="#">Boats</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -43,50 +42,48 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Salidas</h1>
+				<h1>Trips</h1>
 			</div>
 			<div class="card-body">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Fecha</th>
-							<th>Hora</th>
-							<th>Destino</th>
-							<th>Socio</th>
-							<th>Persona</th>
-							<th>Barco</th>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Destination</th>
+							<th>Skipper</th>
+							<th>Member</th>
+							<th>Boat</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="trip : ${salidas}" th:if="${salidas.size()} > 0">
-							<td th:text="${trip.fecha}"></td>
-							<td th:text="${trip.hora}"></td>
-							<td th:text="${trip.destino}"></td>
-							<td th:text="${trip.skipper.nombre}"></td>
-							<td th:text="${trip.member.nombre}"></td>
-							<td th:text="${trip.boat.nombre}"></td>
+						<tr th:each="trip : ${trips}" th:if="${trips.size()} > 0">
+							<td th:text="${trip.date}"></td>
+							<td th:text="${trip.time}"></td>
+							<td th:text="${trip.destination}"></td>
+							<td th:text="${trip.skipper.name}"></td>
+							<td th:text="${trip.member.name}"></td>
+							<td th:text="${trip.boat.name}"></td>
 							<td>
-								<a th:href="@{/salidas/show/{id}(id=${trip.id})}"
-									class="btn btn-primary btn-sm">Mostrar</a>
-								<a th:href="@{/salidas/edit/{id}(id=${trip.id})}"
-								   class="btn btn-warning btn-sm">Editar</a>
-								<a th:href="@{/salidas/delete/{id}(id=${trip.id})}"
-								   class="btn btn-danger btn-sm">Borrar</a>
+								<a th:href="@{/trips/show/{id}(id=${trip.id})}"
+									class="btn btn-primary btn-sm">Show</a>
+								<a th:href="@{/trips/edit/{id}(id=${trip.id})}"
+								   class="btn btn-warning btn-sm">Edit</a>
+								<a th:href="@{/trips/delete/{id}(id=${trip.id})}"
+								   class="btn btn-danger btn-sm">Delete</a>
 							</td>
 						</tr>
-						<tr th:if="${salidas.size()} == 0">
-							<td colspan="3" class="text-center">No se han encontrado registros</td>
+						<tr th:if="${trips.size()} == 0">
+							<td colspan="3" class="text-center">Records not found</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 
-
 		<div class="d-flex justify-content-between">
-			<a href="/home" class="btn btn-primary" th:href="@{/}">Volver</a></li>
-			<a href="/salidas/create" class="btn btn-primary" th:href="@{/salidas/create}">Nueva Salida</a>
-			
+			<a href="/templates/home.html" class="btn btn-primary" th:href="@{/}">Back</a>
+			<a href="/templates/trips/create.html" class="btn btn-primary" th:href="@{/trips/create}">New Trip</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>
