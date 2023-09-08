@@ -31,7 +31,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
-								<li><a class="dropdown-item" href="#">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html">Skippers</a></li>
 								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatList}">Boats</a></li>
 							</ul>
 						</li>
@@ -42,7 +42,7 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1 th:text="#{label_persona}"></h1>
+				<h1 th:text="#{label_member}"></h1>
 			</div>
 			<div class="card-body">
 				<div class="form-floating mb-3">
@@ -58,17 +58,17 @@
 				</div>
 
 				<div class="form-floating mb-3">
-					<label for="patron">
-						<input type="text" readonly class="form-control-plaintext" id="patron" th:value="${member.patron} ? 'Sí' : 'No'">
+					<label for="skipper">
+						<input type="text" readonly class="form-control-plaintext" id="skipper" th:value="${member.skipper} ? 'Sí' : 'No'">
 					</label>
-					<label for="dni">Patron</label>
+					<label for="dni">Skipper</label>
 				</div>
 			</div>
 
 		</div>
 		<div class="d-flex justify-content-between">
-			<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Back</a>
-			<a th:href="@{/personas/edit/{id}(id=${member.id})}" class="btn btn-primary">Edit Member</a>
+			<a th:href="@{/members/memberList}" class="btn btn-primary">Back</a>
+			<a th:href="@{/members/edit/{id}(id=${member.id})}" class="btn btn-primary">Edit Member</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>

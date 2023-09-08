@@ -44,7 +44,7 @@
 				<h1>New member</h1>
 			</div>
 
-			<form action="#" th:action="@{/personas}" th:object="${member}" th:method="post">
+			<form action="#" th:action="@{/members}" th:object="${member}" th:method="post">
 				<div class="form-group">
 					<label for="dni">DNI</label>
 					<input type="text" class="form-control" id="dni" name="dni" th:field="*{dni}">
@@ -58,15 +58,15 @@
 				<div class="form-group">
 					<div class="form-check">
 						<label>
-							<input type="checkbox" class="form-check-input" th:field="*{patron}">
+							<input type="checkbox" class="form-check-input" th:field="*{skipper}">
 						</label>
-						<label class="form-check-label">Patrón</label>
-						<div style="color: red" th:if="${#fields.hasErrors('patron')}" th:errors="*{patron}"></div>
+						<label class="form-check-label">Skipper</label>
+						<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 					</div>
 				</div>
 
 				<div class="d-flex justify-content-between">
-					<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Back</a>
+					<a th:href="@{/members/memberList}" class="btn btn-primary">Back</a>
 					<input type="submit" class="btn btn-primary" value="Submit" />
 				</div>
 			</form>

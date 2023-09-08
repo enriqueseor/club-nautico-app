@@ -30,7 +30,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/personas/listPersonas}">Members</a></li>
-								<li><a class="dropdown-item" href="#">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html">Skippers</a></li>
 								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatsList}">Boats</a></li>
 							</ul>
 						</li>
@@ -43,7 +43,7 @@
 			<div class="card-header">
 				<h1>Edit Member</h1>
 			</div>
-			<form action="#" th:action="@{/personas}" th:object="${member}" th:method="put">
+			<form action="#" th:action="@{/members}" th:object="${member}" th:method="put">
 				<input type="hidden" th:field="*{id}" />
 				<div class="form-group">
 					<label for="dni">DNI</label>
@@ -58,20 +58,20 @@
 				<div class="form-group">
 					<div class="form-check">
 						<label>
-							<input type="checkbox" class="form-check-input" th:field="*{patron}">
+							<input type="checkbox" class="form-check-input" th:field="*{skipper}">
 						</label>
-						<label class="form-check-label">Patrón</label>
-						<div style="color: red" th:if="${#fields.hasErrors('patron')}" th:errors="*{patron}"></div>
+						<label class="form-check-label">Skipper</label>
+						<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 					</div>
 				</div>
 
 				<div class="d-flex justify-content-between">
 					<input type="submit" class="btn btn-primary" value="Submit" />
-					<a th:href="@{/personas/listPersonas}" class="btn btn-primary">Back</a>
+					<a th:href="@{/members/memberList}" class="btn btn-primary">Back</a>
 				</div>
 			</form>
 		</div>
-		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
+		<div id="footer" class="card-footer text-muted">Real Club Nautico Tenerife 2023</div>
 	</div>
 </body>
 

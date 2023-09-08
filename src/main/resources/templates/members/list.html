@@ -30,7 +30,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
-								<li><a class="dropdown-item" href="#">Skippers</a></li>
+								<li><a class="dropdown-item" href="/templates/skippers/list.html">Skippers</a></li>
 								<li><a class="dropdown-item" href="/templates/boats/list.html" th:href="@{/boats/boatList}">Boats</a></li>
 							</ul>
 						</li>
@@ -56,7 +56,7 @@
 						<tr th:each="member : ${members}" th:if="${members.size()} > 0">
 							<td th:text="${member.dni}"></td>
 							<td th:text="${member.name}"></td>
-							<td th:text="${member.patron} ? 'Sí' : 'No'">Patrón</td>
+							<td th:text="${member.skipper} ? 'Sí' : 'No'">Skipper</td>
 							<td>
 								<a th:href="@{/members/show/{id}(id=${member.id})}"
 									class="btn btn-primary btn-sm">Show</a>
@@ -66,7 +66,7 @@
 								   class="btn btn-danger btn-sm">Delete</a>
 							</td>
 						</tr>
-						<tr th:if="${personas.size()} == 0">
+						<tr th:if="${members.size()} == 0">
 							<td colspan="3" class="text-center">Records not found</td>
 						</tr>
 					</tbody>
@@ -76,8 +76,7 @@
 
 		<div class="d-flex justify-content-between">
 			<a href="/templates/home.html" class="btn btn-primary" th:href="@{/}">Back</a>
-			<a href="/templates/members/create.html" class="btn btn-primary" th:href="@{/personas/create}">New member</a>
-			
+			<a href="/templates/members/create.html" class="btn btn-primary" th:href="@{/members/create}">New member</a>
 		</div>
 		<div id="footer" class="card-footer text-muted">Club Nautico Tenerife 2023</div>
 	</div>
