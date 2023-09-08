@@ -2,14 +2,7 @@ package com.atos.clubNauticoApp.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="BOATS")
@@ -18,27 +11,30 @@ public class Boat implements Serializable{
 	private static final long serialVersionUID = 2229450999885454481L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="BOATREGISTRATION")
 	private Long boatRegistration;
+	@Column(name="NAME")
 	private String name;
-	private int mooringNUmber;
+	@Column(name="MOORINGNUMBER")
+	private int mooringNumber;
+	@Column(name="FEE")
 	private double fee;
-	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_member")
 	private Skipper skipper;
 	
-	public Boat(String name, int mooringNUmber, double fee, Skipper skipper) {
+	public Boat(String name, int mooringNumber, double fee, Skipper skipper) {
 		this.name = name;
-		this.mooringNUmber = mooringNUmber;
+		this.mooringNumber = mooringNumber;
 		this.fee = fee;
 		this.skipper = skipper;
 	}
 
-	public Boat(Long boatRegistration, String name, int mooringNUmber, double fee) {
+	public Boat(Long boatRegistration, String name, int mooringNumber, double fee) {
 		super();
 		this.boatRegistration = boatRegistration;
 		this.name = name;
-		this.mooringNUmber = mooringNUmber;
+		this.mooringNumber = mooringNumber;
 		this.fee = fee;
 	}
 
@@ -61,11 +57,11 @@ public class Boat implements Serializable{
 	}
 
 	public int getMooringNumber() {
-		return mooringNUmber;
+		return mooringNumber;
 	}
 
 	public void setMooringNumber(int mooringNumber) {
-		this.mooringNUmber = mooringNumber;
+		this.mooringNumber = mooringNumber;
 	}
 
 	public double getFee() {

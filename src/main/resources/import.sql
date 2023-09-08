@@ -14,3 +14,11 @@ INSERT INTO SKIPPERS (dni, name, skipper) VALUES('05920812Z', 'ROSA MARIA CAMARA
 INSERT INTO SKIPPERS (dni, name, skipper) VALUES('30289190F', 'ESTEVE PUIG GONZALEZ', '1');
 INSERT INTO SKIPPERS (dni, name, skipper) VALUES('93476119W', 'JOAQUIN MARRERO RODRIGUEZ', '1');
 INSERT INTO SKIPPERS (dni, name, skipper) VALUES('48939350L', 'CLAUDIA GUEDES CHAVES', '1');
+
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('MATADOR', '1', '120.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('PRINCESS', '1', '180.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('GODZILLA', '1', '300.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('DIANA', '1', '100.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('SUPER NOVA', '1', '130.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('QUASIMODO', '1', '150.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('BURRITO', '1', '160.00');

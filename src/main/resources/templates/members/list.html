@@ -49,14 +49,14 @@
 						<tr>
 							<th>Dni</th>
 							<th>Name</th>
-							<th>Es patrón</th>
+							<th>Skipper</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="member : ${members}" th:if="${members.size()} > 0">
 							<td th:text="${member.dni}"></td>
 							<td th:text="${member.name}"></td>
-							<td th:text="${member.skipper} ? 'Sí' : 'No'">Skipper</td>
+							<td th:text="${member.skipper} ? 'Yes' : 'No'">Skipper</td>
 							<td>
 								<a th:href="@{/members/show/{id}(id=${member.id})}"
 									class="btn btn-primary btn-sm">Show</a>
