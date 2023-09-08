@@ -45,23 +45,23 @@
 				<h1 th:text="#{label_member}"></h1>
 			</div>
 			<div class="card-body">
-				<div class="form-floating mb-3">
-					<input type="text" readonly class="form-control-plaintext" id="dni" th:value="${member.dni}">
+				<div>
 					<label for="dni">DNI</label>
+					<label for="dni">
+						<input type="text" readonly class="form-control-plaintext" id="dni" th:value="${member.dni}">
+					</label>
 				</div>
-
-				<div class="form-floating mb-3">
+				<div>
+					<label for="dni">Name</label>
 					<label for="name">
 						<input type="text" readonly class="form-control-plaintext" id="name" th:value="${member.name}">
 					</label>
-					<label for="dni">Name</label>
 				</div>
-
-				<div class="form-floating mb-3">
-					<label for="skipper">
-						<input type="text" readonly class="form-control-plaintext" id="skipper" th:value="${member.skipper} ? 'Sí' : 'No'">
-					</label>
+				<div>
 					<label for="dni">Skipper</label>
+					<label for="skipper">
+						<input type="text" readonly class="form-control-plaintext" id="skipper" th:value="${member.skipper} ? 'YES' : 'No'">
+					</label>
 				</div>
 			</div>
 		</div>

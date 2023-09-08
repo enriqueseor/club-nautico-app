@@ -45,55 +45,52 @@
 				<h1 th:text="#{label_boat}"></h1>
 			</div>
 			<div class="card-body">
-				<div class="form-floating mb-3">
+				<div>
 					<input type="number" readonly class="form-control-plaintext" id="id" th:value="${trip.id}">
 					<label for="id">Id</label>
 				</div>
-
-				<div class="form-floating mb-3">
+				<div>
 					<label for="date">
 						<input type="date" readonly class="form-control-plaintext" id="date" th:value="${trip.date}">
 					</label>
 					<label for="id">Date</label>
 				</div>
 
-				<div class="form-floating mb-3">
+				<div>
 					<label for="hora">
 						<input type="text" readonly class="form-control-plaintext" id="hora" th:value="${trip.hora}">
 					</label>
 					<label for="id">Hora</label>
 				</div>
 				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="destination">
 						<input type="text" readonly class="form-control-plaintext" id="destination" th:value="${trip.destination}">
 					</label>
 					<label for="id">Destination</label>
 				</div>
 				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="skipper">
 						<input readonly class="form-control-plaintext" id="skipper" th:value="${trip.skipper.name}">
 					</label>
 					<label for="id">Skipper</label>
 				</div>
-				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="member">
 						<input readonly class="form-control-plaintext" id="member" th:value="${trip.member.name}">
 					</label>
 					<label for="id">Persona</label>
 				</div>
-				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="boat">
 						<input readonly class="form-control-plaintext" id="boat" th:value="${trip.boat.name}">
 					</label>
 					<label for="id">Boat</label>
 				</div>
 			</div>
-
 		</div>
+
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/trips/tripList}" class="btn btn-primary">Back</a>
 			<a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn btn-primary">Edit Trip</a>

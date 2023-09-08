@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
 	<div class="container my-5">
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
@@ -42,44 +41,46 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1 th:text="#{label_boat}"></h1>
+				<h1>Boat</h1>
 			</div>
 			<div class="card-body">
-				<div class="form-floating mb-3">
-					<input type="number" readonly class="form-control-plaintext" id="boatRegistration" th:value="${boat.boatRegistration}">
+				<div>
+					<input type="number" readonly class="form-control-plaintext" id="boatRegistration"
+						   th:value="${boat.boatRegistration}">
 					<label for="boatRegistration">Boat Registration</label>
 				</div>
-
-				<div class="form-floating mb-3">
+				<div>
 					<label for="name">
-						<input type="text" readonly class="form-control-plaintext" id="name" th:value="${boat.name}">
+						<input type="text" readonly class="form-control-plaintext" id="name"
+							   th:value="${boat.name}">
 					</label>
-					<label for="boatRegistration">Nombre</label>
+					<label for="boatRegistration">Boat Registration</label>
 				</div>
-
-				<div class="form-floating mb-3">
-					<label for="mooringNUmber">
-						<input type="number" readonly class="form-control-plaintext" id="mooringNUmber" th:value="${boat.mooringNUmber}">
+				<div>
+					<label for="mooringNumber">
+						<input type="number" readonly class="form-control-plaintext" id="mooringNumber"
+							   th:value="${boat.mooringNumber}">
 					</label>
 					<label for="boatRegistration">Mooring Number</label>
 				</div>
-				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="fee">
-						<input type="number" step="any" readonly class="form-control-plaintext" id="fee" th:value="${boat.fee}">
+						<input type="number" step="any" readonly class="form-control-plaintext" id="fee"
+							   th:value="${boat.fee}">
 					</label>
 					<label for="boatRegistration">Fee</label>
 				</div>
-				
-				<div class="form-floating mb-3">
+				<div>
 					<label for="skipper">
-						<input readonly class="form-control-plaintext" id="skipper" th:value="${boat.skipper.name}">
+						<input readonly class="form-control-plaintext" id="skipper"
+							   th:if="${boat.skipper != null}" th:value="${boat.skipper.name}">
+						<span th:if="${boat.skipper == null}">N/A</span>
 					</label>
 					<label for="boatRegistration">Skipper</label>
 				</div>
 			</div>
-
 		</div>
+
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/boats/boatList}" class="btn btn-primary">Back</a>
 			<a th:href="@{/boats/edit/{boatRegistration}(boatRegistration=${boat.boatRegistration})}" class="btn btn-primary">Edit boat</a>

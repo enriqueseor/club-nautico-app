@@ -72,10 +72,9 @@
 					<input class="form-control" id="skipper" name="skipper" th:field="*{skipper}">
 					<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 				</div>
-
 				<div class="d-flex justify-content-between">
-					<input type="submit" class="btn btn-primary" value="Submit" />
 					<a th:href="@{/boats/boatList}" class="btn btn-primary">Back</a>
+					<input type="submit" class="btn btn-primary" value="Submit" />
 				</div>
 			</form>
 		</div>
