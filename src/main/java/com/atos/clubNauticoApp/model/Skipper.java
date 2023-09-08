@@ -34,10 +34,10 @@ public class Skipper implements Serializable{
 	
 	@NotBlank
 	@Size(min = 3)
-	@Column(name="NANE")
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(name="PATRON")
+	@Column(name="SKIPPER")
 	private Boolean skipper;
 	
 	@OneToMany(mappedBy="skipper", fetch = FetchType.LAZY)

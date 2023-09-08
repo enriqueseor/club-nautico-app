@@ -58,11 +58,11 @@
 							<td th:text="${member.name}"></td>
 							<td th:text="${member.patron} ? 'Sí' : 'No'">Patrón</td>
 							<td>
-								<a th:href="@{/personas/show/{id}(id=${member.id})}"
+								<a th:href="@{/members/show/{id}(id=${member.id})}"
 									class="btn btn-primary btn-sm">Show</a>
-								<a th:href="@{/personas/edit/{id}(id=${member.id})}"
+								<a th:href="@{/members/edit/{id}(id=${member.id})}"
 								   class="btn btn-warning btn-sm">Edit</a>
-								<a th:href="@{/personas/delete/{id}(id=${member.id})}"
+								<a th:href="@{/members/delete/{id}(id=${member.id})}"
 								   class="btn btn-danger btn-sm">Delete</a>
 							</td>
 						</tr>
@@ -73,7 +73,6 @@
 				</table>
 			</div>
 		</div>
-
 
 		<div class="d-flex justify-content-between">
 			<a href="/templates/home.html" class="btn btn-primary" th:href="@{/}">Back</a>

@@ -12,7 +12,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="BOAT")
+@Table(name="BOATS")
 public class Boat implements Serializable{
 
 	private static final long serialVersionUID = 2229450999885454481L;

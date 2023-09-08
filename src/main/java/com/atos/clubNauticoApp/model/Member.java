@@ -13,10 +13,9 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-
 @Data
 @Entity
-@Table(name = "MEMBER")
+@Table(name = "MEMBERS")
 @AllArgsConstructor
 public class Member implements Serializable {
 
@@ -30,8 +29,8 @@ public class Member implements Serializable {
 	@Size(min = 3)
 	@Column(name="NAME")
 	private String name;
-	@Column(name="PATRON")
-	private Boolean patron;
+	@Column(name="SKIPPER")
+	private Boolean skipper;
 
 	public Long getId() {
 		return id;
@@ -58,18 +57,18 @@ public class Member implements Serializable {
 	}
 
 	public Boolean getSkipper() {
-		return patron;
+		return skipper;
 	}
 
 	public void setSkipper(Boolean patron) {
-		this.patron = patron;
+		this.skipper = patron;
 	}
 
-	public Member(String dni, @NotBlank @Size(min = 3) String name, Boolean patron) {
+	public Member(String dni, @NotBlank @Size(min = 3) String name, Boolean skipper) {
 		super();
 		this.dni = dni;
 		this.name = name;
-		this.patron = patron;
+		this.skipper = skipper;
 	}
 
 	public Member() {
