@@ -22,3 +22,10 @@ INSERT INTO BOATS (name, mooringNumber, fee) VALUES('DIANA', '1', '100.00');
 INSERT INTO BOATS (name, mooringNumber, fee) VALUES('SUPER NOVA', '1', '130.00');
 INSERT INTO BOATS (name, mooringNumber, fee) VALUES('QUASIMODO', '1', '150.00');
 INSERT INTO BOATS (name, mooringNumber, fee) VALUES('BURRITO', '1', '160.00');
+
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-09-08 14:00:00','14:00:00','Antequera');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-10-12 11:00:00','11:00:00','Güimar');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-17 09:00:00','09:00:00','Taganana');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-21 15:00:00','15:00:00','Antequera');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-22 12:00:00','12:00:00','Candelaria');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-12-05 17:00:00','17:00:00','Añaza');

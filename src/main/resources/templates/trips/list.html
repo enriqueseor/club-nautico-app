@@ -61,9 +61,12 @@
 							<td th:text="${trip.date}"></td>
 							<td th:text="${trip.time}"></td>
 							<td th:text="${trip.destination}"></td>
-							<td th:text="${trip.skipper.name}"></td>
-							<td th:text="${trip.member.name}"></td>
-							<td th:text="${trip.boat.name}"></td>
+							<td th:if="${trip.skipper != null}" th:text="${trip.skipper.name}"></td>
+							<td th:if="${trip.skipper == null}">N/A</td>
+							<td th:if="${trip.member != null}" th:text="${trip.member.name}"></td>
+							<td th:if="${trip.member == null}">N/A</td>
+							<td th:if="${trip.boat != null}" th:text="${trip.boat.name}"></td>
+							<td th:if="${trip.boat == null}">N/A</td>
 							<td>
 								<a th:href="@{/trips/show/{id}(id=${trip.id})}"
 									class="btn btn-primary btn-sm">Show</a>

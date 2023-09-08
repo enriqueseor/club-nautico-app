@@ -30,17 +30,21 @@ public class Trip implements Serializable{
 	private String time;
 	private String destination;
 	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_skipper")
+	private Skipper skipper;
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_member")
 	private Member member;
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_boat")
 	private Boat boat;
 
-	public Trip(Date date, String time, String destination, Member member, Boat boat) {
+	public Trip(Date date, String time, String destination, Skipper skipper, Member member, Boat boat) {
 		super();
 		this.date = date;
 		this.time = time;
 		this.destination = destination;
+		this.skipper = skipper;
 		this.member = member;
 		this.boat = boat;
 	}
@@ -87,6 +91,10 @@ public class Trip implements Serializable{
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+
+	public Skipper getSkipper() {return skipper;}
+
+	public void setSkipper(Skipper skipper) {this.skipper = skipper;}
 
 	public Member getMember() {
 		return member;

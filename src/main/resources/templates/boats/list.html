@@ -60,14 +60,15 @@
 							<td th:text="${boat.name}"></td>
 							<td th:text="${boat.mooringNumber}"></td>
 							<td th:text="${boat.fee}"></td>
-							<td th:text="${boat.skipper.name}"></td>
+							<td th:if="${boat.skipper != null}" th:text="${boat.skipper.name}"></td>
+							<td th:if="${boat.skipper == null}">N/A</td>
 							<td>
 								<a th:href="@{/boats/show/{boatRegistration}(boatRegistration=${boat.boatRegistration})}"
 									class="btn btn-primary btn-sm">Show</a>
 								<a th:href="@{/boats/edit/{boatRegistration}(boatRegistration=${boat.boatRegistration})}"
 								   class="btn btn-warning btn-sm">Edit</a>
 								<a th:href="@{/boats/delete/{boatRegistration}(boatRegistration=${boat.boatRegistration})}"
-								   class="btn btn-danger btn-sm">Deleter</a>
+								   class="btn btn-danger btn-sm">Delete</a>
 							</td>
 						</tr>
 						<tr th:if="${boats.size()} == 0">
