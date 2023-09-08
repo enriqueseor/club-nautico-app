@@ -43,7 +43,7 @@
 			<div class="card-header">
 				<h1>Edit Skipper</h1>
 			</div>
-			<form action="#" th:action="@{/skippers}" th:object="${skipper}" th:method="put">
+			<form action="#" th:action="@{/skippers}" th:object="${skipper}" th:method="post">
 				<input type="hidden" th:field="*{id}" />
 				<div class="form-group">
 					<label for="dni">DNI</label>

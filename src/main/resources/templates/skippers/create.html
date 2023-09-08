@@ -42,7 +42,7 @@
 
 		<div class="card">
 			<div class="card-header">
-				<h1>Nuevo skipper</h1>
+				<h1>New skipper</h1>
 			</div>
 
 			<form action="#" th:action="@{/skippers}" th:object="${skipper}" th:method="post">
@@ -59,16 +59,16 @@
 				<div class="form-group">
 					<div class="form-check">
 						<label>
-							<input type="checkbox" class="form-check-input" th:field="*{patron}">
+							<input type="checkbox" class="form-check-input" th:field="*{skipper}">
 						</label>
 						<label class="form-check-label">Skipper</label>
-						<div style="color: red" th:if="${#fields.hasErrors('patron')}" th:errors="*{patron}"></div>
+						<div style="color: red" th:if="${#fields.hasErrors('skipper')}" th:errors="*{skipper}"></div>
 					</div>
 				</div>
 
 				<div class="d-flex justify-content-between">
-					<a th:href="@{/skippers/skippersList}" class="btn btn-primary">Back</a>
-					<input type="submit" class="btn btn-primary" value="Submit" />
+					<a th:href="@{/skippers/skippersList}" class="btn btn-primary" th:href="@{/}">Back</a>
+					<input th:href="@{/skippers/skippersList}" type="submit" class="btn btn-primary" value="Submit" />
 				</div>
 			</form>
 		</div>

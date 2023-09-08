@@ -33,7 +33,7 @@ public class Skipper implements Serializable{
 	private String dni;
 	
 	@NotBlank
-	@Size(min = 3)
+	@Size(min = 3, max = 100)
 	@Column(name="NAME")
 	private String name;
 	
@@ -44,7 +44,6 @@ public class Skipper implements Serializable{
 	@Column(name="Boat")
 	private List<Boat> boat;
 
-	
 	public Skipper(String dni, @NotBlank @Size(min = 3) String name, Boolean skipper, List<Boat> boat) {
 		super();
 		this.dni = dni;
