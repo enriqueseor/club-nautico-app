@@ -15,17 +15,17 @@ INSERT INTO SKIPPERS (dni, name, skipper) VALUES('30289190F', 'ESTEVE PUIG GONZA
 INSERT INTO SKIPPERS (dni, name, skipper) VALUES('93476119W', 'JOAQUIN MARRERO RODRIGUEZ', '1');
 INSERT INTO SKIPPERS (dni, name, skipper) VALUES('48939350L', 'CLAUDIA GUEDES CHAVES', '1');
 
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('MATADOR', '1', '120.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('PRINCESS', '1', '180.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('GODZILLA', '1', '300.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('DIANA', '1', '100.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('SUPER NOVA', '1', '130.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('QUASIMODO', '1', '150.00');
-INSERT INTO BOATS (name, mooringNumber, fee) VALUES('BURRITO', '1', '160.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('MATADOR', '20', '120.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('PRINCESS', '12', '180.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('GODZILLA', '7', '300.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('DIANA', '3', '100.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('SUPER NOVA', '4', '130.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('QUASIMODO', '18', '150.00');
+INSERT INTO BOATS (name, mooringNumber, fee) VALUES('BURRITO', '13', '160.00');
 
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-09-08 14:00:00','14:00:00','Antequera');
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-10-12 11:00:00','11:00:00','Güimar');
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-17 09:00:00','09:00:00','Taganana');
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-21 15:00:00','15:00:00','Antequera');
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-22 12:00:00','12:00:00','Candelaria');
-INSERT INTO TRIPS (date, time, destination) VALUES ('2023-12-05 17:00:00','17:00:00','Añaza');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-09-08','02:00 PM','Antequera');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-10-12','11:00 AM','Güimar');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-17','09:00 AM','Taganana');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-21','03:00 PM','Antequera');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-11-22','12:00 PM','Candelaria');
+INSERT INTO TRIPS (date, time, destination) VALUES ('2023-12-05','05:00 PM','Añaza');
