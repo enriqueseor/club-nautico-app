@@ -2,102 +2,109 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head>
-	<title>Trip</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-		crossorigin="anonymous"></script>
-	<link href="/static/css/club-nautico.css" rel="stylesheet" type="text/css"/>
+    <title>Trip</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+    <link href="/static/css/club-nautico.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
 
-	<div class="container my-5">
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" th:href="@{/trips/tripList}">Trips</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Administration
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/templates/members/list.html" th:href="@{/members/memberList}">Members</a></li>
-								<li><a class="dropdown-item" href="/templates/skippers/list.html" th:href="@{/skippers/skipperList}">Skippers</a></li>
-								<li><a class="dropdown-item" href="/templates/boats/list.html">Boats</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+<div class="container my-5">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/trips/tripList}">Trips</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Administration
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/templates/members/list.html"
+                                   th:href="@{/members/memberList}">Members</a></li>
+                            <li><a class="dropdown-item" href="/templates/skippers/list.html"
+                                   th:href="@{/skippers/skipperList}">Skippers</a></li>
+                            <li><a class="dropdown-item" href="/templates/boats/list.html">Boats</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-		<div class="card">
-			<div class="card-header">
-				<h1 th:text="#{label_boat}"></h1>
-			</div>
-			<div class="card-body">
-				<div>
-					<input type="number" readonly class="form-control-plaintext" id="id" th:value="${trip.id}">
-					<label for="id">Id</label>
-				</div>
-				<div>
-					<label for="date">
-						<input type="date" readonly class="form-control-plaintext" id="date" th:value="${trip.date}">
-					</label>
-					<label for="id">Date</label>
-				</div>
+    <div class="card">
+        <div class="card-header">
+            <h1>Trip</h1>
+        </div>
+        <div class="card-body">
+            <div>
+                <label for="id">Id</label>
+                <input type="number" readonly class="form-control-plaintext" id="id" th:value="${trip.id}">
+            </div>
+            <div>
+                <label for="id">Date</label>
+                <label for="date">
+                    <input type="date" readonly class="form-control-plaintext" id="date" th:value="${trip.date}">
+                </label>
+            </div>
+            <div>
+                <label for="id">Hora</label>
+                <label for="time">
+                    <input type="text" readonly class="form-control-plaintext" id="time" th:value="${trip.time}">
+                </label>
+            </div>
+            <div>
+                <label for="id">Destination</label>
+                <label for="destination">
+                    <input type="text" readonly class="form-control-plaintext" id="destination"
+                           th:value="${trip.destination}">
+                </label>
+            </div>
+            <div>
+                <label for="id">Skipper</label>
+                <label for="skipper">
+                    <input readonly class="form-control-plaintext" id="skipper"
+                           th:if="${trip.skipper != null}" th:value="${trip.skipper.name ?: 'N/A'}">
+                    <span th:if="${trip.skipper == null}">N/A</span>
+                </label>
+            </div>
+            <div>
+                <label for="id">Member</label>
+                <label for="member">
+                    <input readonly class="form-control-plaintext" id="member"
+                           th:if="${trip.member != null && trip.member.name != null}" th:value="${trip.member.name}">
+                    <span th:if="${trip.member == null || trip.member.name == null}">N/A</span>
+                </label>
+            </div>
+            <div>
+                <label for="id">Boat</label>
+                <label for="boat">
+                    <input readonly class="form-control-plaintext" id="boat"
+                           th:if="${trip.boat != null && trip.boat.name != null}" th:value="${trip.boat.name}">
+                    <span th:if="${trip.boat == null || trip.boat.name == null}">N/A</span>
+                </label>
+            </div>
+        </div>
+    </div>
 
-				<div>
-					<label for="hora">
-						<input type="text" readonly class="form-control-plaintext" id="hora" th:value="${trip.hora}">
-					</label>
-					<label for="id">Hora</label>
-				</div>
-				
-				<div>
-					<label for="destination">
-						<input type="text" readonly class="form-control-plaintext" id="destination" th:value="${trip.destination}">
-					</label>
-					<label for="id">Destination</label>
-				</div>
-				
-				<div>
-					<label for="skipper">
-						<input readonly class="form-control-plaintext" id="skipper" th:value="${trip.skipper.name}">
-					</label>
-					<label for="id">Skipper</label>
-				</div>
-				<div>
-					<label for="member">
-						<input readonly class="form-control-plaintext" id="member" th:value="${trip.member.name}">
-					</label>
-					<label for="id">Persona</label>
-				</div>
-				<div>
-					<label for="boat">
-						<input readonly class="form-control-plaintext" id="boat" th:value="${trip.boat.name}">
-					</label>
-					<label for="id">Boat</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="d-flex justify-content-between">
-			<a th:href="@{/trips/tripList}" class="btn btn-primary">Back</a>
-			<a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn btn-primary">Edit Trip</a>
-		</div>
-		<div class="text-center">
-			<footer id="footer" class="card-footer text-muted">Real Club Nautico Tenerife 2023</footer>
-		</div>
-	</div>
+    <div class="d-flex justify-content-between">
+        <a th:href="@{/trips/tripList}" class="btn btn-primary">Back</a>
+        <a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn btn-primary">Edit Trip</a>
+    </div>
+    <div class="text-center">
+        <footer id="footer" class="card-footer text-muted">Real Club Nautico Tenerife 2023</footer>
+    </div>
+</div>
 </body>
 </html>
