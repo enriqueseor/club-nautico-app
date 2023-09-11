@@ -15,7 +15,7 @@ public class Boat implements Serializable{
 	private Long boatRegistration;
 	@Column(name="NAME")
 	private String name;
-	@Column(name="MOORINGNUMBER",  unique = true)
+	@Column(name="MOORINGNUMBER")
 	private int mooringNumber;
 	@Column(name="FEE")
 	private double fee;

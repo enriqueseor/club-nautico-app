@@ -52,9 +52,9 @@
 					<div style="color: red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
 				</div>
 				<div class="form-group">
-					<label for="hora">Hora</label>
-					<input type="text" class="form-control" id="hora" name="hora" th:field="*{hora}">
-					<div style="color: red" th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}"></div>
+					<label for="time">Time</label>
+					<input type="text" class="form-control" id="time" name="time" th:field="*{time}">
+					<div style="color: red" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></div>
 				</div>
 				<div class="form-group">
 					<label for="destination">Destination</label>
@@ -68,7 +68,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="member">Persona</label>
+					<label for="member">Member</label>
 					<input class="form-control" id="member" name="member" th:field="*{member}">
 					<div style="color: red" th:if="${#fields.hasErrors('member')}" th:errors="*{member}"></div>
 				</div>
