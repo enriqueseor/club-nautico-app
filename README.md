@@ -1,6 +1,9 @@
 # Nautical Club Web Application
 
-This is a comprehensive web application for managing various aspects of a nautical club, including boats, members, skippers, boat trips, and more. The project utilizes the Spring Framework for Java web development.
+This is a comprehensive web application for managing various aspects of a 
+nautical club, including boats, members, skippers, boat trips, and more. 
+The project utilizes the [Spring](https://spring.io/) Framework for 
+[Java](https://www.java.com/en/) web development.
 
 ![RCNT_HOME](https://github.com/enriqueseor/club-nautico-app/assets/101838134/3946e67f-62b7-4427-bcca-71b3dea2a942)
 
