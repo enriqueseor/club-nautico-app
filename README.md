@@ -5,7 +5,7 @@ nautical club, including boats, members, skippers, boat trips, and more.
 The project utilizes the [Spring](https://spring.io/) Framework for 
 [Java](https://www.java.com/en/) web development.
 
-![RCNT_HOME](https://github.com/enriqueseor/club-nautico-app/assets/101838134/3946e67f-62b7-4427-bcca-71b3dea2a942)
+![RCNT_HOME](images/RCNT_HOME.png)
 
 ## Table of Contents
 
@@ -31,19 +31,19 @@ The project utilizes the [Spring](https://spring.io/) Framework for
 
 - **Boat Management**: Create, edit, list, show, and delete boats. Record boat details such as registration information and specifications.
 
-![RCNT_BOATS](https://github.com/enriqueseor/club-nautico-app/assets/101838134/8982814b-5610-4634-85b8-5e8689a2d69c)
+![RCNT_BOATS](images/RCNT_BOATS.png)
 
 - **Member Management**: Maintain a database of club members, including their personal details and membership status.
 
-![RCNT_MEMBERS](https://github.com/enriqueseor/club-nautico-app/assets/101838134/8b58fea3-d943-4528-a287-67a5a4dad3a5)
+![RCNT_MEMBERS](images/RCNT_MEMBERS.png)
 
 - **Skipper Registration**: Allow members to register as skippers and specify their qualifications and availability for boat trips.
 
-![RCNT_SKIPPERS](https://github.com/enriqueseor/club-nautico-app/assets/101838134/955a6acf-befc-4a1f-9099-1ffeccfb751b)
+![RCNT_SKIPPERS](images/RCNT_SKIPPERS.png)
 
 - **Boat Trip Scheduling**: Schedule and manage boat trips, assigning skippers and members to available boats.
 
-![RCNT_TRIPS](https://github.com/enriqueseor/club-nautico-app/assets/101838134/52ff6a39-245b-4bd6-aa55-37b4b82c2532)
+![RCNT_TRIPS](images/RCNT_TRIPS.png)
 
 ## Getting Started
 
@@ -72,4 +72,4 @@ If you'd like to contribute to this project, please follow these guidelines:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
