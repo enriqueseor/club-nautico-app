@@ -9,5 +9,4 @@ public class ClubNauticoAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClubNauticoAppApplication.class, args);
 	}
-
 }

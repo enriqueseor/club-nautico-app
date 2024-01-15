@@ -10,14 +10,11 @@ import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 @Constraint(validatedBy = AdultValidator.class)
-@Target(value = ElementType.FIELD)//Type se aplica a la clase y field al campo
+@Target(value = ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ValidAdult {
-
 	String message() default "";
-
 	Class<?>[] groups() default {};
-
 	Class<? extends Payload>[] payload() default {};
 }

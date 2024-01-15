@@ -82,4 +82,3 @@ public class TripController {
 		return "trips/edit";
 	}
 }
-

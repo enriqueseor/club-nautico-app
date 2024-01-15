@@ -34,13 +34,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- INI Habilitar hot reload -->
+		<!-- INI hot reload -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- FIN Habilitar hot reload -->
+		<!-- END hot reload -->
 
 		<dependency>
 			<groupId>com.h2database</groupId>

@@ -91,4 +91,3 @@ public class BoatController {
 		return "boats/edit";
 	}
 }
-

@@ -5,7 +5,7 @@ nautical club, including boats, members, skippers, boat trips, and more.
 The project utilizes the [Spring](https://spring.io/) Framework for 
 [Java](https://www.java.com/en/) web development.
 
-![RCNT_HOME](images/RCNT_HOME.png)
+![RCNT_HOME](resources/RCNT_HOME.png)
 
 ## Table of Contents
 
@@ -28,19 +28,19 @@ The project utilizes the [Spring](https://spring.io/) Framework for
 
 - **Boat Management**: Create, edit, list, show, and delete boats. Record boat details such as registration information and specifications.
 
-![RCNT_BOATS](images/RCNT_BOATS.png)
+![RCNT_BOATS](resources/RCNT_BOATS.png)
 
 - **Member Management**: Maintain a database of club members, including their personal details and membership status.
 
-![RCNT_MEMBERS](images/RCNT_MEMBERS.png)
+![RCNT_MEMBERS](resources/RCNT_MEMBERS.png)
 
 - **Skipper Registration**: Allow members to register as skippers and specify their qualifications and availability for boat trips.
 
-![RCNT_SKIPPERS](images/RCNT_SKIPPERS.png)
+![RCNT_SKIPPERS](resources/RCNT_SKIPPERS.png)
 
 - **Boat Trip Scheduling**: Schedule and manage boat trips, assigning skippers and members to available boats.
 
-![RCNT_TRIPS](images/RCNT_TRIPS.png)
+![RCNT_TRIPS](resources/RCNT_TRIPS.png)
 
 ## Getting Started
 
