@@ -49,7 +49,8 @@ To run this project locally, follow these steps:
 1. Clone the repository
 2. Open the project on a Java IDE
 3. Build and run the project
-4. Access the application in your web browser: http://localhost:8080/
+4. Javac compiler is not working for me (intelliJ), use eclipse one.
+5. Access the application in your web browser: http://localhost:8080/
 
 ## License
 

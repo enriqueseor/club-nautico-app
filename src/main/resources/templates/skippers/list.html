@@ -47,14 +47,12 @@
 						<tr>
 							<th>Dni</th>
 							<th>Name</th>
-							<th>Skipper</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="skipper : ${skippers}" th:if="${skippers.size()} > 0">
 							<td th:text="${skipper.dni}"></td>
 							<td th:text="${skipper.name}"></td>
-							<td th:text="${skipper.skipper} ? 'Yes' : 'No'">Skipper</td>
 							<td>
 								<a th:href="@{/skippers/show/{id}(id=${skipper.id})}" class="btn btn-primary btn-sm">Show</a>
 								<a th:href="@{/skippers/edit/{id}(id=${skipper.id})}" class="btn btn-warning btn-sm">Edit</a>
